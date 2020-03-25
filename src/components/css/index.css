@@ -1,0 +1,228 @@
+/* Header Component */
+
+
+header {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+
+header .mainHeader {
+    width: 20%;
+    height: 10vh;
+    background-color: var(--color-mainBlue);
+    color: #fff;
+    text-align: center;
+    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+header .mainHeader h1 {
+    margin-top: 3vh;
+    font-size: 1em;
+}
+
+header .mainHeader h2 {
+    font-size: 0.8em;
+}
+
+header .navigation {
+    height: 10vh;
+    width: 80%;
+    display: flex;
+
+}
+
+header .navigation a {
+    text-decoration: none;
+    color: var(--color-mainBlue);
+    font-weight: 700;
+}
+
+header .navigation ul {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* Default */
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0
+}
+
+header .navigation ul li {
+    display: block;
+    flex: 0 1 auto;
+    /* Default */
+    list-style-type: none;
+    margin-right: 5vw;
+}
+
+
+
+
+
+/* -------------------INDEX------------------ */
+
+.back {
+    position: fixed;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.firstIndex {
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.firstIndex .item1 {
+    color: var(--color-mainBlue);
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 90%;
+    display: flex;
+}
+
+.firstIndex .item1 .one {
+    width: 60%;
+    position: relative;
+    padding: 0 2vw 0 2vw;
+}
+.firstIndex .item1 .one img {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    z-index: -1;
+    width: 5rem;
+}
+
+.firstIndex .item1 .one h1 {
+    margin-bottom: 2vh;
+    margin-left: 5rem;
+}
+.firstIndex .item1 .one p {
+    margin-left: 5rem;
+}
+
+.firstIndex .item1 a {
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.firstIndex .item1 .two{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+.firstIndex .item1 .buttonOne {
+    height: 50px;
+    width: 500px;
+    background-color: var(--color-mainBlue);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 17px -4px rgba(0, 0, 0, 0.75);
+
+}
+.firstIndex .item1 .buttonOne h2 {
+    font-size: 1em;
+    
+}
+
+.firstIndex .itemGeneral{
+    color: var(--color-mainBlue);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 40%;
+    display: flex;
+    
+}
+
+#item2{
+    left: 30%;
+    top: 45%;
+}
+#item3{
+    left: 50%;
+    top: 65%;
+}
+#item4{
+    left: 77%;
+    top: 85%;
+}
+.firstIndex .itemGeneral img{
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    z-index: -1;
+    width: 5rem;
+}
+
+.firstIndex .itemGeneral  h1 {
+    margin-bottom: 2vh;
+    margin-left: 6rem;
+}
+.firstIndex .itemGeneral  p {
+    margin-left: 6rem;
+}
+
+.secondIndex{
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+.secondIndex .backSecond{
+    height: 100vh;
+    width: 40vw;
+    position: absolute;
+    top: 0;
+    left: 60%;
+    background-color: var(--color-mainBlue);
+    z-index: -2;
+}
+.secondIndex .imgSecond{
+    height: 40vh;
+    width: 40vw;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    position: absolute;
+    left: 60%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.50);
+    -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.50);
+    box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.50);
+    object-fit: cover;
+}
+
+.secondIndex .item1{
+    color: var(--color-mainBlue);
+    position: absolute;
+    left: 20%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}

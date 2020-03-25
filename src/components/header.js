@@ -1,42 +1,25 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import {Link} from 'gatsby'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+export default function Header () {
+    return(
+        <header>
+            <div className='mainHeader'>
+                <h1>Dr. Gabriel Robledo Kaiser</h1>
+                <h2>Crdiologo</h2>
+            </div>
+            <div className='navigation'>
+                <ul>
+                    <li><Link>Quién Soy</Link></li>
+                    <li><Link>Preguntas Frecuentes</Link></li>
+                    {/* <li><Link>Cardio Oncología</Link></li>
+                    <li><Link>Contrapulzación externa</Link></li>
+                    <li><Link>Rigidez Arterial</Link></li> */}
+                    <li><Link>Servicios</Link></li>
+                    <li><Link>Biblioteca</Link></li>
+                    <li><Link>Contacto</Link></li>
+                </ul>
+            </div>
+        </header>
+    )
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
