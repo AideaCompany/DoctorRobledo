@@ -12,14 +12,14 @@
 }
 
 :root {
-  --color-mainBlue: #006599;
-  --color-cyan: #58C0C9;
+  --color-mainBlue: rgb(0, 101, 153);
+  --color-cyan: rgb(88, 192, 201);
   --color-darkBlue : #092854;
 }
 
 
 * {
-  font-family: "Monserrat";
+  font-family: "Poppyns";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,3 +38,17 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  /* border-bottom: 2px solid rgba(0, 0, 0, 0.87); */
+  border-bottom: 2px solid #58C0C9 !important;
+}
+
+/* .MuiInput-underline:after {
+  border-bottom: 2px solid #58C0C9 !important;
+}
+
+.MuiInput-underline:before {
+  
+    border-bottom: 1px solid #006599 !important;
+
+} */

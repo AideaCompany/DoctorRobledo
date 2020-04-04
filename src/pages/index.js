@@ -5,15 +5,19 @@ import { Link } from "gatsby"
 //Components
 import SEO from "../components/seo"
 import Layout from '../components/layout'
-import Header from '../components/header'
+
 
 //materialUI
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
+// import TextField from '@material-ui/core/TextField';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import InputLabel from '@material-ui/core/InputLabel';
+
+//FullPage
+
+import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation , FullpageNumber } from '@ap.cx/react-fullpage'
 
 function IndexPage (){
 
@@ -25,99 +29,121 @@ function IndexPage (){
       },
     },
     formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
+      margin: 0,
+      minWidth: "20vw",
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
+    select : {
+      '&:before': {
+        borderColor: "#006599",
+        backgroundColor : "transparent"
+      },
+      '&:after': {
+        borderColor: "#006599",
+        
+      },
+      '&$disabled:before, &$disabled:hover:before':{
+        borderColor: "#58C0C9 !important",
+      }
+    },
+    icon : {
+      fill : "#006599"
+    },
+    selectMenu: {
+      '&:focus':{
+        backgroundColor : 'transparent !important'
+      }
+    },
+    textField: {
+      margin: 0,
+      minWidth: "20vw",
+      color : "#006599 !important",
+      
+    },
+    label:
+     {  color : "#006599 !important",
+      '&$focused': {
+        color: '#006599 !important'
+      },
+    },
+    underline: {
+      "&&:before": {
+        borderBottom: "1px solid #006599 !important"
+      },
+      "&&:after": {
+        borderBottom: "#58C0C9"
+      }
+    }
   }));
 
   const classes = useStyles();
 
+  const onShowSlider = (e) =>{
+    console.log(e)
+  }
+
   return(
   <Layout>
-    <Header/>
-    <SEO title="Home" />
+    <SEO title="Inicio" />
     
-    <img className='back' src={"../back/back.svg"} alt="back doctor robledo kaiser"/>
+    <img className='back' src={"../icons/heart.svg"} alt="back doctor robledo kaiser"/>
 
     {/* Primera Parte */}
-    <div className='firstIndex'>
-      <div className='item1'>
-        <div className='one'>
-          <img src={"../icons/heart.svg"} alt="heart"/>
-          <div>
-          <h1>Tu <strong>corazón</strong> es nuestro compromiso</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum 
-            suscipit commodi molestiae nisi optio vero sit, rerum aperiam perspiciatis 
-            mollitia nam ipsum nihil libero inventore, aliquam consectetur nemo, reiciendis 
-            necessitatibus.</p>
-          </div>
-        </div>
-        <div className='two'>
-          <Link>
-            <div className='buttonOne'>
-              <h2>Conoce más de nuestros planes</h2> 
-            </div>
-          </Link>
-        </div>
-      </div>
-      <div className='itemGeneral' id="item2">
-        <img src={"../icons/surface1.svg"} alt="jeringa doctor robledo kaiser"/>
-        <div className='one'>
-          <h1>Los mejores <strong>tratamientos</strong></h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel placeat at 
-            mollitia 
-            tempora?</p>
-        </div>
-      </div>
-      <div className='itemGeneral' id="item3">
-        <img src={"../icons/personal.svg"} alt="personal medico doctor robledo kaiser"/>
-        <div className='one'>
-          <h1><strong>Personal médico</strong>de primera</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel placeat at 
-            mollitia 
-            tempora?</p>
-        </div>
-      </div>
-      <div className='itemGeneral' id="item4">
-        <img src={"../icons/experiencia.svg"} alt="experiencia cardiologia doctor robledo kaiser"/>
-        <div className='one'>
-          <h1><strong>Personal médico</strong>de primera</h1>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel placeat at 
-            mollitia 
-            tempora?</p>
-        </div>
-      </div>
-    </div>
-    
-    {/* Segunda parte */}
-    <div className='secondIndex'>
-      <div className='backSecond'></div>
-        <img className='imgSecond' src={"../temp/ej1.svg"} alt="cardiologo doctor robledo kaiser"/>
-        <div className='item1'>
-          <h1>Reserva tu cita</h1>
-          <FormControl className={classes.root} noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Nombre y Apellido"/>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
+   
+    <Fullpage onChange={(e)=>onShowSlider(e)}>
+      <FullpageNavigation itemStyle={{display : "none"}}/>
+      <FullPageSections  >
+        <FullpageSection  >
+          <div className='itemSlider' >
+            <div className='one' id='leftSlider'
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-    </div>
+              <div>
+                <h1>Tu <strong>corazón</strong> </h1>
+                <h2>es nuestro compromiso</h2>
+              </div>
+            </div>
+            <h1 className='numberSlider' id='numLeft'>01</h1>
+          </div>
+        </FullpageSection>
+        <FullpageSection>
+          <div className='itemSlider' >
+          <div className='one' id='rightSlider'>
+              <div>
+                <h1>Servicios</h1>
+                <h2>Nuestro sello de la casa</h2>
+              </div>
+            </div>
+            <h1 className='numberSlider' id='numRight'>02</h1>
+          </div>
+        </FullpageSection>
+        <FullpageSection>
+          <div className='itemSlider' >
+          <div className='one' id='leftSlider'>
+              <div>
+                <h1>Conoce</h1>
+                <h2>Sobre mi y mi trabajo</h2>
+              </div>
+            </div>
+            <h1 className='numberSlider' id='numLeft'>03</h1>
+          </div>
+        </FullpageSection>
+        <FullpageSection>
+          <div className='itemSlider' >
+          <div className='one' id='rightSlider'>
+              <div>
+                <h1>Reserva tu cita</h1>
+                <h2>Juntos encontraremos el problema</h2>
+              </div>
+            </div>
+            <h1 className='numberSlider' id='numRight'>04</h1>
+          </div>
+        </FullpageSection>
+      </FullPageSections>
+    </Fullpage>
   </Layout>
   )
 } 
-
-  
-  
-  
-
 
 export default IndexPage
