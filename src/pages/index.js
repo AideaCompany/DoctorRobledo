@@ -58,6 +58,11 @@ function IndexPage (){
       setDirection(-1)
       anim.playSegments([81, 36], true)
       setActualSlider(0)
+      anim.addEventListener('complete', ()=> {
+        t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+          .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+          .play()
+      })
     }else if(e.number === 1){
       if (e.number>actualSlider) {
         setDirection(1);
@@ -68,36 +73,33 @@ function IndexPage (){
             .play()
         })
       }else{
-
         setDirection(-1)
         anim.playSegments([148,80], true)
         anim.addEventListener('complete', ()=> {
-          t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider4, 0.5 , {top : "40%" , opacity: 0, ease: Power4.easeInOut}, "cross")
+          t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+            .to(textSlider3, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
             .play()
         })
       }
       setActualSlider(1)
     }else if(e.number === 2){
       if (e.number>actualSlider) {
-
         setDirection(1)
         anim.playSegments([81,148], true)
         anim.addEventListener('complete', ()=> {
           t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider2, 0.5 , {top : "40%" , opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
             .play()
         })
       }else{
-
         setDirection(-1)
         anim.playSegments([220,148], true)
         anim.addEventListener('complete', ()=> {
+          console.log("up")
           t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider2, 0.5 , {top : "40%" , opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(textSlider4, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
             .play()
         })
-        
       }
       setActualSlider(2)
     }else if(e.number === 3){
@@ -105,7 +107,7 @@ function IndexPage (){
       anim.playSegments([149,220], true)
       anim.addEventListener('complete', ()=> {
         t1.to(textSlider4, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-          .to(textSlider3, 0.5 , {top : "40%" , opacity: 0, ease: Power4.easeInOut}, "cross")
+          .to(textSlider3, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
           .play()
       })
       
@@ -140,7 +142,7 @@ function IndexPage (){
         {
           eventName: 'complete',
           callback : () => { 
-              t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}).play()
+              t2.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}).play()
               
           }
         }]}
