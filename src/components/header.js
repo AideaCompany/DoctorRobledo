@@ -16,11 +16,11 @@ export default function Header () {
             </div>
             <div className='navigation'>
                 <ul>
-                    <li><Link>Quién Soy</Link></li>
-                    <li><Link>Preguntas Frecuentes</Link></li>
-                    <li><Link>Servicios</Link></li>
-                    <li><Link>Biblioteca</Link></li>
-                    <li><Link>Contacto</Link></li>
+                    <li><Link to='/'>Quién Soy</Link></li>
+                    <li><Link to='/'>Preguntas Frecuentes</Link></li>
+                    <li><Link to='/'>Servicios</Link></li>
+                    <li><Link to='/'>Biblioteca</Link></li>
+                    <li><Link to='/'>Contacto</Link></li>
                 </ul>
             </div>
         </header>

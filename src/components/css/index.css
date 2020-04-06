@@ -109,20 +109,29 @@ header .navigation ul li {
     width: 30%;
 }
 
+.animationIndex{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+
+}
+
 .numberSlider {
     position: absolute;
-    top: 85%;
+    top: 96%;
     color:  var(--color-mainBlue);;
     font-size: 20em;
     transform: translate(0%, -50%) rotate(-90deg) ;
     -webkit-transform: translate(0%, -50%) rotate(-90deg);
     opacity: 0.15;
-    width: 30%;
+    width: 30vh;
 }
 
 
 #numLeft{
-    left: 5%;
+    left: 10%;
 }
 #numRight{
     left : 70%
@@ -143,10 +152,10 @@ header .navigation ul li {
     position: absolute;
     width: 60%;
     padding: 0 2vw 0 2vw;
-    top: 50%;
+    top: 60%;
     transform: translate(0%, -50%);
     -webkit-transform: translate(0%, -50%);
-
+    opacity: 0;
 }
 
 #leftSlider{
@@ -158,12 +167,12 @@ header .navigation ul li {
 }
 .itemSlider .one h1 {
     font-weight: 900;
-    font-size: 4em;
+    font-size: 3em;
     margin-left: 3rem;
 }
 .itemSlider .one h2 {
     font-weight: 900;
-    font-size: 2.75em;
+    font-size: 2em;
     margin-left: 3rem;
 }
 .itemSlider .one p {
