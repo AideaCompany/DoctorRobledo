@@ -9,11 +9,28 @@ import React from "react"
 import PropTypes from "prop-types"
 import Header from '../components/header'
 
+//graphql
+
+import {graphql} from 'gatsby'
+
 import "./layout.css"
 import './css/index.css'
 
 
-const Layout = ({ children }) => {
+const Layout =  ({ children }) => {
+
+  //  graphql(`
+  // query {
+  //   allWordpressPost(sort: { fields: [date] }) {
+  //     edges {
+  //       node {
+  //         title
+  //         excerpt
+  //       }
+  //     }
+  //   }
+  // }`).then(result=> console.log(result))
+
 
   const style = {
     backgroundColor : "#fff"

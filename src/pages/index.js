@@ -1,4 +1,5 @@
 import React , {useState , useEffect , useRef} from "react"
+import {document} from 'browser-monads'
 // import { Link } from "gatsby"
 
 
@@ -27,7 +28,8 @@ import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 function IndexPage (){
 
-  const [slideState, setSlideState] = useState(1)
+  const [slideState, setSlideState] = useState("01")
+  const [idSlider, setIdSlider] = useState("numLeft")
   const [direction, setDirection] = useState(1)
   const [actualSlider, setActualSlider] = useState(0)
 
@@ -45,10 +47,12 @@ function IndexPage (){
 
   const t1 = new TimelineMax({paused: true});
   const t2 = new TimelineMax({paused: true});
+  const t3 = new TimelineMax({paused: true});
   const textSlider1 = document.getElementsByClassName('textSlider1');
   const textSlider2 = document.getElementsByClassName('textSlider2');
   const textSlider3 = document.getElementsByClassName('textSlider3');
   const textSlider4 = document.getElementsByClassName('textSlider4');
+  const numberSlider = document.getElementsByClassName('numberSlider');
 
   const onShowSlider = (e) =>{
     if (animationRef.current.anim) {
@@ -58,26 +62,39 @@ function IndexPage (){
       setDirection(-1)
       anim.playSegments([81, 36], true)
       setActualSlider(0)
+      t3.to(numberSlider, 1 , {opacity: 0}).play()
       anim.addEventListener('complete', ()=> {
+        setIdSlider("numLeft")
+        setSlideState("01");
         t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
           .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+          .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
           .play()
       })
     }else if(e.number === 1){
       if (e.number>actualSlider) {
         setDirection(1);
         anim.playSegments([36,80], true);
+        t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
+          setIdSlider("numRight")
+          setSlideState("02");
+          t2.kill();
           t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider1, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
       }else{
         setDirection(-1)
-        anim.playSegments([148,80], true)
+        anim.playSegments([160,80], true)
+        t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
+          setIdSlider("numRight")
+          setSlideState("02");
           t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider3, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
       }
@@ -85,28 +102,41 @@ function IndexPage (){
     }else if(e.number === 2){
       if (e.number>actualSlider) {
         setDirection(1)
-        anim.playSegments([81,148], true)
+        anim.playSegments([81,160], true)
+        t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
+          setIdSlider("numLeft")
+          setSlideState("03");
           t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
       }else{
         setDirection(-1)
-        anim.playSegments([220,148], true)
+        anim.playSegments([220,160], true)
+        t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
-          t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+          setIdSlider("numLeft")
+          setSlideState("03");
+          t2.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider4, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
       }
       setActualSlider(2)
     }else if(e.number === 3){
+      
       setDirection(1)
-      anim.playSegments([149,220], true)
+      anim.playSegments([160,220], true)
+      t3.to(numberSlider, 1 , {opacity: 0}).play()
       anim.addEventListener('complete', ()=> {
+        setIdSlider("numRight")
+        setSlideState("04");
         t1.to(textSlider4, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
           .to(textSlider3, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+          .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
           .play()
       })
       
@@ -117,6 +147,7 @@ function IndexPage (){
 
   return(
   <Layout>
+
     <SEO title="Inicio" />
     
     <img className='back' src={"../icons/heart.svg"} alt="back doctor robledo kaiser"/>
@@ -141,16 +172,16 @@ function IndexPage (){
         {
           eventName: 'complete',
           callback : () => { 
-              t2.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}).play()
-              
+              t2.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut})
+                .to(numberSlider, 1  , {opacity : 0.15})    
+                .play()
+
           }
         }]}
       />
     </div>
-
-
     {/* Primera Parte */}
-   
+    <h1 className='numberSlider' id={idSlider}>{slideState}</h1>
     <Fullpage  onChange={(e)=>onShowSlider(e)}>
       <FullpageNavigation itemStyle={{display : "none"}}/>
       <FullPageSections >
@@ -162,7 +193,6 @@ function IndexPage (){
                 <h2>es nuestro compromiso</h2>
               </div>
             </div>
-            <h1 className='numberSlider' id='numLeft'>01</h1>
           </div>
         </FullpageSection>
         <FullpageSection>
@@ -173,29 +203,26 @@ function IndexPage (){
                 <h2>Nuestro sello de la casa</h2>
               </div>
             </div>
-            <h1 className='numberSlider' id='numRight'>02</h1>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
           <div className='one textSlider3' id='leftSlider'>
               <div >
-                <h1>Conoce</h1>
-                <h2>Sobre mi y mi trabajo</h2>
+                <h1>Reserva tu cita</h1>
+                <h2>Juntos encontraremos el problema</h2>
               </div>
           </div>
-            <h1 className='numberSlider' id='numLeft'>03</h1>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
           <div className='one textSlider4' id='rightSlider'>
               <div>
-                <h1>Reserva tu cita</h1>
-                <h2>Juntos encontraremos el problema</h2>
+                <h1>Conoce</h1>
+                <h2>Sobre mi y mi trabajo</h2>
               </div>
             </div>
-            <h1 className='numberSlider' id='numRight'>04</h1>
           </div>
         </FullpageSection>
       </FullPageSections>

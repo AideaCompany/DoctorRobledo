@@ -10,17 +10,17 @@ export default function Header () {
         <>
         <div className='cuadrado'></div>
         <header>
-            <div className='mainHeader'>
+            <Link to='/' className='mainHeader'>
                 <h1>Dr. Gabriel Robledo Kaiser</h1>
                 <h2>Crdiologo</h2>
-            </div>
+            </Link>
             <div className='navigation'>
                 <ul>
-                    <li><Link to='/'>Quién Soy</Link></li>
-                    <li><Link to='/'>Preguntas Frecuentes</Link></li>
-                    <li><Link to='/'>Servicios</Link></li>
-                    <li><Link to='/'>Biblioteca</Link></li>
-                    <li><Link to='/'>Contacto</Link></li>
+                    <li><Link to='/quien-soy'>Quién Soy</Link></li>
+                    <li><Link to='/preguntas-frecuentes'>Preguntas Frecuentes</Link></li>
+                    <li><Link to='/servicios'>Servicios</Link></li>
+                    <li><Link to='/biblioteca'>Biblioteca</Link></li>
+                    <li><Link to='/contacto'>Contacto</Link></li>
                 </ul>
             </div>
         </header>
