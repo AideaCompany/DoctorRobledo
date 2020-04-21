@@ -72,6 +72,7 @@ header .navigation ul li {
 }
 
 .verticalFooter{
+    background-color: #fff;
     height: 90vh;
     position: fixed;
     width: 10vh;
@@ -109,6 +110,17 @@ header .navigation ul li {
     -webkit-transform: translate(-50%, -50%);
     opacity: 0.1;
     width: 30%;
+}
+
+.scrollIcon{
+    width: 50px;
+    position: fixed;
+    left: 2%;
+    top: 87vh;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    
+    z-index: 10;
 }
 
 .animationIndex{
@@ -188,3 +200,348 @@ header .navigation ul li {
     text-decoration: none;
     font-size: 1.5em;
 }
+
+/* ---------------------ABOUT--------------- */
+
+
+.mainContainerAbout{
+    width: 100vw;
+    overflow-x: hidden;
+    color: var(--color-mainBlue);
+}
+
+.firstAbout{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    
+}
+.firstAbout h1{
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    font-size: 4em;
+    width: 100%;
+    text-align: center;
+}
+
+.animationAbout{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+   
+}
+
+.secondAbout , .thirdAbout{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.secondAbout img{
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 80vh;
+    object-fit: cover;
+
+}
+
+.secondAbout p{
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    padding: 5vh;
+    font-size: 1.5em;
+}
+
+.secondAbout a{
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 75%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    color: var(--color-mainBlue);
+    border: 2px solid var(--color-mainBlue);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secondAbout #link1{
+    left: 60%;
+}
+.secondAbout #link2{
+    left: 80%;
+}
+
+.thirdAbout h1{
+    position: absolute;
+    left: 10%;
+    top: 20vh;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+}
+.thirdAbout .thridDesc{
+    position: absolute;
+    left: 10%;
+    top: 40vh;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    width: 30vw;
+}
+.thirdAbout img{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    width: 40vw;
+}
+
+
+/* ----------------------PREGUNTAS FRECUENTES--------- */
+
+.mainContainerQuestion{
+    width: 100vw;
+    overflow-x: hidden;
+    color: var(--color-mainBlue);
+}
+
+.firstQuestion{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.firstQuestion h1{
+    position: absolute;
+    left: 15%;
+    top: 40%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    font-size: 2em;
+}
+.firstQuestion p{
+    position: absolute;
+    left: 15%;
+    top: 60%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%); 
+    width: 40vw;
+}
+
+.secondQuestion{
+    width: 100vw;
+}
+
+.secondQuestion .questionContainer{
+    width: 100vw;
+    padding-left: 10vh;
+    height: 50vh;
+    display: flex;
+}
+
+.questionContainer> div{
+    width: 50%;
+    align-items: center;
+    height: auto;
+    position: relative;
+    border-top: 1px solid rgba(0, 101, 153 ,0.5);
+}
+.questionContainer>div > *{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%); 
+}
+.questionContainer>div h1{
+    text-align: center;
+}
+
+
+
+/*------------------- SERVICIOS --------------- */
+
+.mainContainerService{
+    width: 100vw;
+    overflow-x: hidden;
+    color: var(--color-mainBlue);
+}
+
+.firstServices{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.firstServices h1{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%); 
+}
+.firstServices p{
+    position: absolute;
+    left: 10%;
+    top: 70%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%); 
+    width: 30vw;
+}
+.firstServices .animationService{
+    position: absolute;
+    left: 70%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); 
+}
+.secondService{
+    width: 100%;
+}
+
+.serviceItem{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    
+}
+
+.serviceItem .imgService{
+    width: 40vw;
+    height: 90vh;
+    position: absolute;
+    left: 10vh;
+    top: 10vh;
+    background-color: rgba(0, 101, 153 ,0.5);
+}
+.imgService img{
+    height: 90vh;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.imgService h1{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg) ;
+    -webkit-transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 5em;
+    width: 100%;
+    text-align: center;
+}
+.serviceItem p{
+    position: absolute;
+    width: 40vw;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.buttonService{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 75%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border: 2px solid var(--color-mainBlue);
+    text-decoration: none;
+    color: var(--color-mainBlue);
+}
+
+
+
+/* -----------CONTACT-------- */
+
+.mainContainerContact{
+    width: 100vw;
+    overflow-x: hidden;
+    color: var(--color-mainBlue);
+}
+
+.mainContainerContact .firstContact{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.firstContact h1{
+    position: absolute;
+    left: 15%;
+    top: 20vh;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    font-size: 3em;
+}
+.firstContact .dataContact{
+    position: absolute;
+    left: 15%;
+    top: 35vh;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+}
+.firstContact .dataContact ul li{
+    list-style: none;
+}
+
+.formContact{
+    position: absolute;
+    left: 50%;
+    top: 50vh;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    
+}
+
+.submitButton{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 1%;
+    top: 110%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    border: 2px solid var(--color-mainBlue);
+    text-decoration: none;
+    color: var(--color-mainBlue);
+    
+}
+
+.map{
+    margin-top: 2vw;
+    width: 30vw;
+    height: 40vh;
+}
+

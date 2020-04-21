@@ -19,17 +19,7 @@ import './css/index.css'
 
 const Layout =  ({ children }) => {
 
-  //  graphql(`
-  // query {
-  //   allWordpressPost(sort: { fields: [date] }) {
-  //     edges {
-  //       node {
-  //         title
-  //         excerpt
-  //       }
-  //     }
-  //   }
-  // }`).then(result=> console.log(result))
+
 
 
   const style = {

@@ -1,5 +1,6 @@
 import React , {useState , useEffect , useRef} from "react"
 import {document} from 'browser-monads'
+import { graphql } from "gatsby"
 // import { Link } from "gatsby"
 
 
@@ -22,18 +23,21 @@ import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation  } from
 //Lottie
 import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/data.json'
+import animationScroll from '../components/animations/indexSlider/scroll.json'
 
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
-function IndexPage (){
 
+export default ({ data })=>{
   const [slideState, setSlideState] = useState("01")
   const [idSlider, setIdSlider] = useState("numLeft")
   const [direction, setDirection] = useState(1)
   const [actualSlider, setActualSlider] = useState(0)
+  const [completeFirstAnimation, setCompleteFirstAnimation] = useState(false)
 
   const animationRef = useRef(null)
+  const animationScrollRef = useRef(null)
   const defaultOptions = {
     loop: false,
     autoplay: true, 
@@ -43,11 +47,24 @@ function IndexPage (){
       preserveAspectRatio: 'xMidYMid slice'
     },
   };
+  const defaultOptionsScroll = {
+    loop: false,
+    autoplay: false, 
+    segments: true,
+    animationData: animationScroll,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    },
+  };
+
+  
+
 
 
   const t1 = new TimelineMax({paused: true});
   const t2 = new TimelineMax({paused: true});
   const t3 = new TimelineMax({paused: true});
+  const t4 = new TimelineMax({paused: true});
   const textSlider1 = document.getElementsByClassName('textSlider1');
   const textSlider2 = document.getElementsByClassName('textSlider2');
   const textSlider3 = document.getElementsByClassName('textSlider3');
@@ -57,93 +74,94 @@ function IndexPage (){
   const onShowSlider = (e) =>{
     if (animationRef.current.anim) {
       const {anim} = animationRef.current;
-      
-    if(e.number === 0){
-      setDirection(-1)
-      anim.playSegments([81, 36], true)
-      setActualSlider(0)
-      t3.to(numberSlider, 1 , {opacity: 0}).play()
-      anim.addEventListener('complete', ()=> {
-        setIdSlider("numLeft")
-        setSlideState("01");
-        t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-          .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-          .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
-          .play()
-      })
-    }else if(e.number === 1){
-      if (e.number>actualSlider) {
-        setDirection(1);
-        anim.playSegments([36,80], true);
-        t3.to(numberSlider, 1 , {opacity: 0}).play()
-        anim.addEventListener('complete', ()=> {
-          setIdSlider("numRight")
-          setSlideState("02");
-          t2.kill();
-          t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider1, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
-            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
-            .play()
-        })
-      }else{
+      if(e.number === 0){
         setDirection(-1)
-        anim.playSegments([160,80], true)
-        t3.to(numberSlider, 1 , {opacity: 0}).play()
-        anim.addEventListener('complete', ()=> {
-          setIdSlider("numRight")
-          setSlideState("02");
-          t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider3, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
-            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
-            .play()
-        })
-      }
-      setActualSlider(1)
-    }else if(e.number === 2){
-      if (e.number>actualSlider) {
-        setDirection(1)
-        anim.playSegments([81,160], true)
+        anim.playSegments([81, 36], true)
+        setActualSlider(0)
         t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
           setIdSlider("numLeft")
-          setSlideState("03");
-          t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+          setSlideState("01");
+          t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
             .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
-      }else{
-        setDirection(-1)
-        anim.playSegments([220,160], true)
+      }else if(e.number === 1){
+        if (e.number>actualSlider) {
+          setDirection(1);
+          anim.playSegments([36,80], true);
+          t3.to(numberSlider, 1 , {opacity: 0}).play()
+          anim.addEventListener('complete', ()=> {
+            setIdSlider("numRight")
+            setSlideState("02");
+            t2.kill();
+            t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+              .to(textSlider1, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
+              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .play()
+          })
+        }else{
+          setDirection(-1)
+          anim.playSegments([160,80], true)
+          t3.to(numberSlider, 1 , {opacity: 0}).play()
+          anim.addEventListener('complete', ()=> {
+            setIdSlider("numRight")
+            setSlideState("02");
+            t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+              .to(textSlider3, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
+              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .play()
+          })
+        }
+        setActualSlider(1)
+      }else if(e.number === 2){
+        if (e.number>actualSlider) {
+          setDirection(1)
+          anim.playSegments([81,160], true)
+          t3.to(numberSlider, 1 , {opacity: 0}).play()
+          anim.addEventListener('complete', ()=> {
+            setIdSlider("numLeft")
+            setSlideState("03");
+            t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+              .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .play()
+          })
+        }else{
+          setDirection(-1)
+          anim.playSegments([220,160], true)
+          t3.to(numberSlider, 1 , {opacity: 0}).play()
+          anim.addEventListener('complete', ()=> {
+            setIdSlider("numLeft")
+            setSlideState("03");
+            t2.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+              .to(textSlider4, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .play()
+          })
+        }
+        setActualSlider(2)
+      }else if(e.number === 3){
+        
+        setDirection(1)
+        anim.playSegments([160,220], true)
         t3.to(numberSlider, 1 , {opacity: 0}).play()
         anim.addEventListener('complete', ()=> {
-          setIdSlider("numLeft")
-          setSlideState("03");
-          t2.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-            .to(textSlider4, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
+          setIdSlider("numRight")
+          setSlideState("04");
+          t1.to(textSlider4, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+            .to(textSlider3, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
             .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
             .play()
         })
+        
       }
-      setActualSlider(2)
-    }else if(e.number === 3){
-      
-      setDirection(1)
-      anim.playSegments([160,220], true)
-      t3.to(numberSlider, 1 , {opacity: 0}).play()
-      anim.addEventListener('complete', ()=> {
-        setIdSlider("numRight")
-        setSlideState("04");
-        t1.to(textSlider4, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-          .to(textSlider3, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-          .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
-          .play()
-      })
-      
-    }
     }
     
   }
+
+ const text = data.allWordpressPost.nodes.map(e=>{return e.content})
 
   return(
   <Layout>
@@ -151,7 +169,16 @@ function IndexPage (){
     <SEO title="Inicio" />
     
     <img className='back' src={"../icons/heart.svg"} alt="back doctor robledo kaiser"/>
-
+    {/* Scroll icon */}
+    <div className='scrollIcon'>
+      <Lottie 
+        ref={animationScrollRef}
+        options={defaultOptionsScroll}
+        width="15vw"
+        height="15vh">
+        
+      </Lottie>
+    </div>
     {/* Animacion */}
     <div className='animationIndex'>
       <Lottie
@@ -160,7 +187,6 @@ function IndexPage (){
         width="100vw"
         height="100vh"
         direction={direction}
-        // segments={segment}'
         eventListeners={[
         {
           eventName : 'DOMLoaded',
@@ -188,40 +214,28 @@ function IndexPage (){
         <FullpageSection   >
           <div className='itemSlider' >
             <div className='one textSlider1' id='leftSlider'>
-              <div>
-                <h1>Tu <strong>corazón</strong> </h1>
-                <h2>es nuestro compromiso</h2>
-              </div>
+              <div dangerouslySetInnerHTML={{ __html: text[0] }}/>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
-          <div className='one textSlider2' id='rightSlider'>
-              <div>
-                <h1>Servicios</h1>
-                <h2>Nuestro sello de la casa</h2>
-              </div>
+            <div className='one textSlider2' id='rightSlider'>
+              <div dangerouslySetInnerHTML={{ __html: text[1] }}/> 
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
           <div className='one textSlider3' id='leftSlider'>
-              <div >
-                <h1>Reserva tu cita</h1>
-                <h2>Juntos encontraremos el problema</h2>
-              </div>
+              <div dangerouslySetInnerHTML={{ __html: text[2] }}/> 
           </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
-          <div className='one textSlider4' id='rightSlider'>
-              <div>
-                <h1>Conoce</h1>
-                <h2>Sobre mi y mi trabajo</h2>
-              </div>
+            <div className='one textSlider4' id='rightSlider'>
+              <div dangerouslySetInnerHTML={{ __html: text[3] }}/> 
             </div>
           </div>
         </FullpageSection>
@@ -231,4 +245,14 @@ function IndexPage (){
   )
 } 
 
-export default IndexPage
+
+export const pageQueryIndex = graphql`
+  query {
+  allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "INICIO"}}}}) {
+    nodes {
+      content
+    }
+  }
+}
+
+`
