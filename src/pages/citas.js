@@ -65,7 +65,7 @@ const Citas = () =>{
                     <div className="firstCitas">
                         <h1 className='chooseDay'>Escoge el día de tu cita </h1>
                         <div className='calendarDate'>
-                            <Calendar  fullscreen={false}></Calendar>
+                            {/* <Calendar locale={localeOptions} fullscreen={false}></Calendar> */}
                         </div>
                     </div>
                 </div>
