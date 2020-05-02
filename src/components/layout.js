@@ -12,9 +12,10 @@ import Header from '../components/header'
 //graphql
 
 import {graphql} from 'gatsby'
-
+import 'antd/dist/antd.css';
 import "./layout.css"
 import './css/index.css'
+
 
 
 const Layout =  ({ children }) => {

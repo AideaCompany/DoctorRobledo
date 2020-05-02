@@ -545,3 +545,36 @@ header .navigation ul li {
     height: 40vh;
 }
 
+/* Citas */
+
+.mainContainerAbout{
+    width: 100vw;
+    overflow-x: hidden;
+    color: var(--color-mainBlue);
+}
+
+.firstCitas{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.calendarDate{
+    width: 70vw;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    border: 1px solid rgba(0, 101, 153 , 0.5);
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.chooseDay{
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+}
