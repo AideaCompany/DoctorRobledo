@@ -9,13 +9,6 @@ import SEO from "../components/seo"
 import Layout from '../components/layout'
 
 
-//materialUI
-import { makeStyles } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
-// import FormControl from '@material-ui/core/FormControl';
-// import Select from '@material-ui/core/Select';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import InputLabel from '@material-ui/core/InputLabel';
 
 //FullPage
 import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation  } from '@ap.cx/react-fullpage'
@@ -29,12 +22,11 @@ import animationScroll from '../components/animations/indexSlider/scroll.json'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
-export default ({ data })=>{
+export default ()=>{
   const [slideState, setSlideState] = useState("01")
   const [idSlider, setIdSlider] = useState("numLeft")
   const [direction, setDirection] = useState(1)
   const [actualSlider, setActualSlider] = useState(0)
-  const [completeFirstAnimation, setCompleteFirstAnimation] = useState(false)
 
   const animationRef = useRef(null)
   const animationScrollRef = useRef(null)
@@ -161,8 +153,6 @@ export default ({ data })=>{
     
   }
 
- const text = data.allWordpressPost.nodes.map(e=>{return e.content})
-
   return(
   <Layout>
 
@@ -214,28 +204,32 @@ export default ({ data })=>{
         <FullpageSection   >
           <div className='itemSlider' >
             <div className='one textSlider1' id='leftSlider'>
-              <div dangerouslySetInnerHTML={{ __html: text[0] }}/>
+              <h1>Tu corazón</h1>
+              <p>Nuestro compromiso</p>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
             <div className='one textSlider2' id='rightSlider'>
-              <div dangerouslySetInnerHTML={{ __html: text[1] }}/> 
+              <h1>Servicios</h1>
+              <p>Nuestro sello de la casa</p>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
-          <div className='one textSlider3' id='leftSlider'>
-              <div dangerouslySetInnerHTML={{ __html: text[2] }}/> 
-          </div>
+            <div className='one textSlider3' id='leftSlider'>
+                <h1>Reserva tu cita</h1>
+                <p>Juntos encontraremos el problema</p>
+            </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
             <div className='one textSlider4' id='rightSlider'>
-              <div dangerouslySetInnerHTML={{ __html: text[3] }}/> 
+             <h1>Conoce</h1>
+             <p>Mi historia y mi trabajo</p>
             </div>
           </div>
         </FullpageSection>
@@ -245,14 +239,3 @@ export default ({ data })=>{
   )
 } 
 
-
-export const pageQueryIndex = graphql`
-  query {
-  allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "INICIO"}}}}) {
-    nodes {
-      content
-    }
-  }
-}
-
-`

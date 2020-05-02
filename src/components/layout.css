@@ -12,7 +12,7 @@
 }
 
 :root {
-  --color-mainBlue: #006599;
+  --color-mainBlue: rgb(0, 101, 153);
   --color-cyan: rgb(88, 192, 201);
   --color-darkBlue : #092854;
 }
@@ -23,6 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 html {
@@ -37,6 +38,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
+  
+}
+h1 , h2{
+  color: var(--color-mainBlue) !important;
+  
 }
 .MuiInput-underline:hover:not(.Mui-disabled):before {
   /* border-bottom: 2px solid rgba(0, 0, 0, 0.87); */

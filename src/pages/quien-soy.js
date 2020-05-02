@@ -14,20 +14,7 @@ const QuienSoy = ({data}) =>{
     const [mainDesc, setMainDesc] = useState('')
     const [imgRobledo, setImgRobledo] = useState('')
 
-    useEffect(() => {
-      var content =''
-      data.allWordpressPage.nodes.forEach(e => {
-        content = e.content
-      });   
-      data.allWordpressWpMedia.nodes.forEach(e=>{
-        setImgRobledo(e.source_url)
-      })
-      const div = document.createElement('div');
-      div.innerHTML = content;
-      const [mainTitle, p] = [...div.children].map(el=>el.textContent);
-      setMainTitle(mainTitle)
-      setMainDesc(p)
-    }, [data])
+   
 
     const animationRef = useRef(null);
 
@@ -59,7 +46,7 @@ const QuienSoy = ({data}) =>{
              </div>
              <div className='secondAbout'>
                <img  src={imgRobledo} alt="doctor robledo kaiser cardiologo corazon "/>
-               <p className='mainDesc'>{mainDesc}</p>
+               <p className='mainDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure minus, libero quisquam voluptate natus voluptas ipsum molestiae assumenda fuga cum. Ab distinctio sapiente fuga, facilis ut ipsa ipsum accusantium iure?</p>
                <Link id='link1' to='/servicios'>
                  Revisa mis servicios
                </Link>
@@ -70,7 +57,7 @@ const QuienSoy = ({data}) =>{
              <div className='thirdAbout'>
               <h1>Centro cargiologico de Bogotá</h1>
               <img src="https://centrocardiobogota.com/wp-content/uploads/revslider/cosmetics3/banner4.jpg" alt="doctor robledo kaiser centro cardiologico de bogota"/>
-              <p className='thridDesc'>{mainDesc}</p>
+              <p className='thridDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto quae delectus voluptas. Sequi dolorum inventore aperiam fugit sapiente neque placeat odit sed optio eligendi culpa, officiis ad consequuntur soluta ducimus!</p>
             </div>
            </div>   
         </Layout>
@@ -80,28 +67,3 @@ const QuienSoy = ({data}) =>{
 
 export default QuienSoy
 
-
-export const pageQueryAbout = graphql`
-{
-  allWordpressPage(filter: {title: {eq: "about"}}) {
-    nodes {
-      title
-      content
-    }
-  }
-  allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "ABOUT"}}}}) {
-    nodes {
-      content
-    }
-  }
-  allWordpressWpMedia(filter: {title: {eq: "robledoAbout"}}) {
-    nodes {
-      source_url
-      title
-    }
-  }
-}
-
-
-
-`
