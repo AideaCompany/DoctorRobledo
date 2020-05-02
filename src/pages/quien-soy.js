@@ -11,7 +11,6 @@ import animationSlider from '../components/animations/indexSlider/gafas.json'
 const QuienSoy = ({data}) =>{
     //const [content, setContent] = useState('')
     const [mainTitle, setMainTitle] = useState('')
-    const [mainDesc, setMainDesc] = useState('')
     const [imgRobledo, setImgRobledo] = useState('')
 
    
