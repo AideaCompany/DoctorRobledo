@@ -8,7 +8,7 @@ import { graphql , Link } from "gatsby"
 import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/gafas.json'
 
-const QuienSoy = ({data}) =>{
+const QuienSoy = () =>{
     //const [content, setContent] = useState('')
     const [mainTitle, setMainTitle] = useState('')
     const [mainDesc, setMainDesc] = useState('')

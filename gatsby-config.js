@@ -16,26 +16,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: "gatsby-source-strapi",
       options: {
-        // your WordPress source
-        baseUrl: `http://www.beta.aidea.com.co/`,
-        protocol: `http`,
-        // is it hosted on wordpress.com, or self-hosted?
-        hostingWPCOM: false,
-        // does your site use the Advanced Custom Fields Plugin?
-        useACF: true,
-         includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
+        apiURL: "http://45.55.55.128:1337",
+        contentTypes: [
+          // List of the Content Types you want to be able to request from Gatsby.
+          "blogs",
+          "categorias",
         ],
-      }
+        queryLimit: 1000,
+      },
     },
+
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
