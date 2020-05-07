@@ -44,6 +44,9 @@ h1 , h2{
   color: var(--color-mainBlue) !important;
   
 }
+h1 , h2{
+  color: var(--color-mainBlue) !important; 
+}
 .MuiInput-underline:hover:not(.Mui-disabled):before {
   /* border-bottom: 2px solid rgba(0, 0, 0, 0.87); */
   border-bottom: 2px solid #58C0C9 !important;

@@ -237,5 +237,4 @@ export default ()=>{
     </Fullpage>
   </Layout>
   )
-} 
-
+}

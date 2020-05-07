@@ -8,7 +8,7 @@ import { graphql , Link } from "gatsby"
 import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/gafas.json'
 
-const QuienSoy = ({data}) =>{
+const QuienSoy = () =>{
     //const [content, setContent] = useState('')
     const [mainTitle, setMainTitle] = useState('')
     const [imgRobledo, setImgRobledo] = useState('')
@@ -44,7 +44,7 @@ const QuienSoy = ({data}) =>{
                 </div>
              </div>
              <div className='secondAbout'>
-               <img  src={imgRobledo} alt="doctor robledo kaiser cardiologo corazon "/>
+               {/* <img  src={imgRobledo} alt="doctor robledo kaiser cardiologo corazon "/> */}
                <p className='mainDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure minus, libero quisquam voluptate natus voluptas ipsum molestiae assumenda fuga cum. Ab distinctio sapiente fuga, facilis ut ipsa ipsum accusantium iure?</p>
                <Link id='link1' to='/servicios'>
                  Revisa mis servicios
@@ -55,7 +55,7 @@ const QuienSoy = ({data}) =>{
              </div>
              <div className='thirdAbout'>
               <h1>Centro cargiologico de Bogotá</h1>
-              <img src="https://centrocardiobogota.com/wp-content/uploads/revslider/cosmetics3/banner4.jpg" alt="doctor robledo kaiser centro cardiologico de bogota"/>
+              {/* <img src="https://centrocardiobogota.com/wp-content/uploads/revslider/cosmetics3/banner4.jpg" alt="doctor robledo kaiser centro cardiologico de bogota"/> */}
               <p className='thridDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto quae delectus voluptas. Sequi dolorum inventore aperiam fugit sapiente neque placeat odit sed optio eligendi culpa, officiis ad consequuntur soluta ducimus!</p>
             </div>
            </div>   
@@ -65,4 +65,3 @@ const QuienSoy = ({data}) =>{
 }
 
 export default QuienSoy
-
