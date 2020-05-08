@@ -21,11 +21,6 @@ import './css/index.css'
 const Layout =  ({ children }) => {
 
 
-  useEffect(() => {
-    console.log("hi")
-  }, [])
-
-
   const style = {
     backgroundColor : "#fff"
   }

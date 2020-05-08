@@ -2,25 +2,20 @@ import React , {useState , useEffect , useRef} from "react"
 import {document} from 'browser-monads'
 import { graphql } from "gatsby"
 // import { Link } from "gatsby"
-
-
 //Components
 import SEO from "../components/seo"
 import Layout from '../components/layout'
-
-
-
 //FullPage
 import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation  } from '@ap.cx/react-fullpage'
-
 //Lottie
 import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/data.json'
 import animationScroll from '../components/animations/indexSlider/scroll.json'
-
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+
+console.log(process.env.ENABLE_GATSBY_REFRESH_ENDPOINT)
 
 export default ()=>{
   const [slideState, setSlideState] = useState("01")
