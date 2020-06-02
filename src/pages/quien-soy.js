@@ -9,10 +9,6 @@ import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/gafas.json'
 
 const QuienSoy = () =>{
-    //const [content, setContent] = useState('')
-    const [mainTitle, setMainTitle] = useState('')
-    const [imgRobledo, setImgRobledo] = useState('')
-
    
 
     const animationRef = useRef(null);
@@ -34,7 +30,7 @@ const QuienSoy = () =>{
         <Layout>
            <div className='mainContainerAbout'>
              <div className='firstAbout'>
-                <h1>{mainTitle}</h1>
+                <h1>¿Quién Soy?</h1>
                 <div className='animationAbout'>
                   <Lottie
                     options={defaultOptions}
@@ -49,7 +45,7 @@ const QuienSoy = () =>{
                <Link id='link1' to='/servicios'>
                  Revisa mis servicios
                </Link>
-               <Link id='link2' to='/servicios'>
+               <Link id='link2' to='/biblioteca'>
                  Revisa mi bibliografía
                </Link>
              </div>

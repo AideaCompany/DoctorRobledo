@@ -72,9 +72,9 @@ const Biblioteca = ({data}) =>{
                     <div className='secondBiblioteca'>
                         <div className='mainBlog'>
                                 {dataMain.map(data=>(
-                                    <Card bordered={false} style={{width: '100%'}} cover={<img alt={data.title} src={data.img}></img>}>
+                                    <Card bordered={false} style={{width: '100%'}} cover={<img className='imgCard' style={{objectFit: "cover"}} alt={data.title} src={data.img}></img>}>
                                         <Link className='metaMain' to={`/${data.id}`}>
-                                            <Meta title={<h1>{data.title}</h1>} description={data.description} />
+                                            <Meta title={<h1 style={{fontWeight: "bold"}}>{data.title}</h1>} description={data.description} />
                                         </Link>
                                     </Card>
                                 ))}
@@ -82,8 +82,8 @@ const Biblioteca = ({data}) =>{
                         </div>
                         <div className='listBlog'>
                             <List   itemLayout="vertical"
-                                    size="large"
-                                    pagination={{pageSize: 3}}
+                                    size="small"
+                                    pagination={{pageSize: 3 , size: "small", position: "top"}}
                                     dataSource={dataList}
                                     renderItem={item=> (
                                         <List.Item width={'100%'} key={item.id}>

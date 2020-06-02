@@ -1,8 +1,7 @@
 import React , {useState , useEffect , useRef} from "react"
 import {document} from 'browser-monads'
-import { graphql } from "gatsby"
-// import { Link } from "gatsby"
-//Components
+import { Link } from "gatsby"
+
 import SEO from "../components/seo"
 import Layout from '../components/layout'
 //FullPage
@@ -11,23 +10,25 @@ import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation  } from
 import Lottie from 'react-lottie'
 import animationSlider from '../components/animations/indexSlider/data.json'
 import animationScroll from '../components/animations/indexSlider/scroll.json'
+import animationPre from '../components/animations/indexSlider/preloader.json'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
-
-console.log(process.env.ENABLE_GATSBY_REFRESH_ENDPOINT)
 
 export default ()=>{
   const [slideState, setSlideState] = useState("01")
   const [idSlider, setIdSlider] = useState("numLeft")
   const [direction, setDirection] = useState(1)
   const [actualSlider, setActualSlider] = useState(0)
+  const [displayAnimation, setDisplayAnimation] = useState("inherit")
 
   const animationRef = useRef(null)
   const animationScrollRef = useRef(null)
+  const animationPreloader = useRef(null)
+
   const defaultOptions = {
     loop: false,
-    autoplay: true, 
+    autoplay: false, 
     segments: true,
     animationData: animationSlider,
     rendererSettings: {
@@ -44,7 +45,14 @@ export default ()=>{
     },
   };
 
-  
+  const defaultOptionsPreloader = {
+    loop: false,
+    autoplay: true, 
+    animationData: animationPre,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    },
+  }
 
 
 
@@ -71,7 +79,7 @@ export default ()=>{
           setSlideState("01");
           t1.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+            .to(numberSlider , 1 , {opacity: 1}, 'cross')
             .play()
         })
       }else if(e.number === 1){
@@ -85,7 +93,7 @@ export default ()=>{
             t2.kill();
             t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
               .to(textSlider1, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
-              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .to(numberSlider , 1 , {opacity: 1}, 'cross')
               .play()
           })
         }else{
@@ -97,7 +105,7 @@ export default ()=>{
             setSlideState("02");
             t1.to(textSlider2, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
               .to(textSlider3, 0.5 , {opacity: 0, ease: Power4.easeInOut}, "cross")
-              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .to(numberSlider , 1 , {opacity: 1}, 'cross')
               .play()
           })
         }
@@ -112,7 +120,7 @@ export default ()=>{
             setSlideState("03");
             t1.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
               .to(textSlider2, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .to(numberSlider , 1 , {opacity: 1}, 'cross')
               .play()
           })
         }else{
@@ -124,7 +132,7 @@ export default ()=>{
             setSlideState("03");
             t2.to(textSlider3, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
               .to(textSlider4, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-              .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+              .to(numberSlider , 1 , {opacity: 1}, 'cross')
               .play()
           })
         }
@@ -139,7 +147,7 @@ export default ()=>{
           setSlideState("04");
           t1.to(textSlider4, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .to(textSlider3, 0.5 , { opacity: 0, ease: Power4.easeInOut}, "cross")
-            .to(numberSlider , 1 , {opacity: 0.15}, 'cross')
+            .to(numberSlider , 1 , {opacity: 1}, 'cross')
             .play()
         })
         
@@ -149,87 +157,107 @@ export default ()=>{
   }
 
   return(
-  <Layout>
+  <>
+  <div style={{display: displayAnimation}} className='preloaderAnimation'>
+    <Lottie ref={animationPreloader}
+            options={defaultOptionsPreloader}
+            width="100vw"
+            height="100vh"
+            eventListeners={[
+              {
+                eventName: 'DOMLoaded',
+                callback : () => {
+                  const {anim} = animationPreloader.current;
+                  anim.play()
+                }
+              },
+              {
+                eventName : 'complete',
+                callback : () => {
+                  setDisplayAnimation("none")
+                  const {anim} = animationRef.current;
+                  anim.playSegments([0,35], true)
+                }
+              }
+            ]} />
+  </div>
+    <Layout>
+      <SEO title="Inicio" />
+      
+      <img className='back' src={"../icons/heart.svg"} alt="back doctor robledo kaiser"/>
+      {/* Scroll icon */}
+      <div className='scrollIcon'>
+        <Lottie 
+          ref={animationScrollRef}
+          options={defaultOptionsScroll}
+          width="15vw"
+          height="15vh">
+        </Lottie>
+      </div>
+      {/* Animacion */}
+      <div className='animationIndex'>
+        <Lottie
+          ref={animationRef}
+          options={defaultOptions}
+          width="100vw"
+          height="100vh"
+          direction={direction}
+          eventListeners={[
+          {
+            eventName: 'complete',
+            callback : () => { 
+                t2.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut})
+                  .to(numberSlider, 1  , {opacity : 0.15})    
+                  .play()
 
-    <SEO title="Inicio" />
-    
-    <img className='back' src={"../icons/heart.svg"} alt="back doctor robledo kaiser"/>
-    {/* Scroll icon */}
-    <div className='scrollIcon'>
-      <Lottie 
-        ref={animationScrollRef}
-        options={defaultOptionsScroll}
-        width="15vw"
-        height="15vh">
-        
-      </Lottie>
-    </div>
-    {/* Animacion */}
-    <div className='animationIndex'>
-      <Lottie
-        ref={animationRef}
-        options={defaultOptions}
-        width="100vw"
-        height="100vh"
-        direction={direction}
-        eventListeners={[
-        {
-          eventName : 'DOMLoaded',
-          callback : () => {
-            const {anim} = animationRef.current;
-            anim.playSegments([0,35], true)
-          }
-        },
-        {
-          eventName: 'complete',
-          callback : () => { 
-              t2.to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut})
-                .to(numberSlider, 1  , {opacity : 0.15})    
-                .play()
-
-          }
-        }]}
-      />
-    </div>
-    {/* Primera Parte */}
-    <h1 className='numberSlider' id={idSlider}>{slideState}</h1>
-    <Fullpage  onChange={(e)=>onShowSlider(e)}>
-      <FullpageNavigation itemStyle={{display : "none"}}/>
-      <FullPageSections >
-        <FullpageSection   >
-          <div className='itemSlider' >
-            <div className='one textSlider1' id='leftSlider'>
-              <h1>Tu corazón</h1>
-              <p>Nuestro compromiso</p>
+            }
+          }]}
+        />
+      </div>
+      {/* Primera Parte */}
+      <h1 className='numberSlider' id={idSlider}>{slideState}</h1>
+      <Fullpage  onChange={(e)=>onShowSlider(e)}>
+        <FullpageNavigation itemStyle={{display : "none"}}/>
+        <FullPageSections >
+          <FullpageSection   >
+            <div className='itemSlider' >
+              <div className='one textSlider1' id='leftSlider'>
+                <h1>Tu corazón</h1>
+                <p>Nuestro compromiso</p>
+                <Link to="/servicios">Te invito a conocer mis servicios</Link>
+              </div>
             </div>
-          </div>
-        </FullpageSection>
-        <FullpageSection>
-          <div className='itemSlider' >
-            <div className='one textSlider2' id='rightSlider'>
-              <h1>Servicios</h1>
-              <p>Nuestro sello de la casa</p>
+          </FullpageSection>
+          <FullpageSection>
+            <div className='itemSlider' >
+              <div className='one textSlider2' id='rightSlider'>
+                <h1>Biblioteca</h1>
+                <p>Artículos y noticias de interes</p>
+                <Link to="/servicios">Te invito a visitar la Biblioteca</Link>
+              </div>
             </div>
-          </div>
-        </FullpageSection>
-        <FullpageSection>
-          <div className='itemSlider' >
-            <div className='one textSlider3' id='leftSlider'>
-                <h1>Reserva tu cita</h1>
-                <p>Juntos encontraremos el problema</p>
+          </FullpageSection>
+          <FullpageSection>
+            <div className='itemSlider' >
+              <div className='one textSlider3' id='leftSlider'>
+                  <h1>Reserva tu cita</h1>
+                  <p>Juntos encontraremos el problema</p>
+                  <Link to="/citas">Reserva tu cita.</Link>
+              </div>
             </div>
-          </div>
-        </FullpageSection>
-        <FullpageSection>
-          <div className='itemSlider' >
-            <div className='one textSlider4' id='rightSlider'>
-             <h1>Conoce</h1>
-             <p>Mi historia y mi trabajo</p>
+          </FullpageSection>
+          <FullpageSection>
+            <div className='itemSlider' >
+              <div className='one textSlider4' id='rightSlider'>
+              <h1>Conoce</h1>
+              <p>Mi historia y mi trabajo</p>
+              <Link to="/quien-soy">Revisa mi historia</Link>
+              </div>
             </div>
-          </div>
-        </FullpageSection>
-      </FullPageSections>
-    </Fullpage>
-  </Layout>
+          </FullpageSection>
+        </FullPageSections>
+      </Fullpage>
+    </Layout>
+  </>
   )
 }

@@ -102,9 +102,16 @@ header .navigation ul li {
 
 /* -------------------INDEX------------------ */
 
+.preloaderAnimation{
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
 .back {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -130,7 +137,7 @@ header .navigation ul li {
     top: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 0;
 
 }
 
@@ -199,7 +206,9 @@ header .navigation ul li {
 
 .itemSlider a {
     text-decoration: none;
+    color: var(--color-mainBlue);
     font-size: 1.5em;
+    margin-left: 3rem;
 }
 
 /* ---------------------ABOUT--------------- */
@@ -618,7 +627,7 @@ header .navigation ul li {
     border: 2px solid var(--color-mainBlue);
     text-decoration: none;
     color: var(--color-mainBlue);
-    
+
 }
 
 /* --------------BIBLIOTECA---------- */
@@ -668,24 +677,30 @@ header .navigation ul li {
 }
 
 .secondBiblioteca{
-    padding-top: 13vh;
+    padding-top: 10vh;
     display: flex;
 }
 .secondBiblioteca .mainBlog{
+    padding-top: 5vh;
     height: 90vh;
     width: 50%;
     padding-left: 13vh;
     margin-right: 10vh;
 }
 .secondBiblioteca .listBlog{
-    width: 40%;
+
+    width: 40%; 
+}
+.ant-list-item-meta-title{
+    font-weight: 900 !important;
+    color: var(--color-mainBlue) !important;
 }
 
 .contentList{
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--color-mainBlue);
+    color: var(--color-mainBlue) !important;
 
 }
 .contentList img{
@@ -700,6 +715,11 @@ header .navigation ul li {
 
 .ant-card-meta-description, .ant-card-meta-title{
     color: var(--color-mainBlue) !important;
+}
+
+.imgCard{
+    width: 100%;
+    height: 55vh;
 }
 
 
