@@ -10,6 +10,8 @@ import TextField from '@material-ui/core/TextField';
 //form
 import { useForm } from 'react-hook-form';
 
+import {message} from 'antd'
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
@@ -23,7 +25,6 @@ const Contacto = () =>{
 
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
-    const [messageSend, setMessageSend] = useState(false)
     const onSubmit = data => {
         axios.post(
             "http://45.55.55.128:1337/email",
@@ -126,7 +127,7 @@ const Contacto = () =>{
         )
         .then(function (response) {
             if (response.statusText === 'OK') {
-                setMessageSend(true)
+                message.success("Gracias por comunicarse con nosotros, pronto nos pondremos en contacto.")
             }
           })
         .catch(function (error) {
@@ -219,8 +220,7 @@ const Contacto = () =>{
                                 native: true,
                             }}
                             helperText={errors.mensaje ? "Por favor, escriba su mensaje" : ''}/>  
-                        <button type='submit' className='submitButton'>Enviar Mensaje</button>
-                        {messageSend ? <p>Gracias por comunicarse con nosotros, pronto nos pondremos en contacto.</p> : null}
+                        <button type='submit' style={{cursor: "pointer"}} className='submitButton'>Enviar Mensaje</button>
                     </form>
                     
                 </div>

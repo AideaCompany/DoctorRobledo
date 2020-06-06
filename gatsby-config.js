@@ -16,6 +16,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Doctor Gabriel Robledo Kaiser`,
+        short_name: `Dr Robledo`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `minimal-ui`,
+        icon: "src/images/icon.png"
+      },
+    },
+    {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "http://45.55.55.128:1337",

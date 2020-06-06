@@ -28,7 +28,7 @@ header .mainHeader {
     height: 10vh;
     color: var(--color-mainBlue);
     text-align: center;
-    margin-left: 3vw;
+    margin-left: 5vw;
     text-decoration: none;
 }
 
@@ -138,6 +138,8 @@ header .navigation ul li {
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     z-index: 0;
+    width: 100vw;
+    height: 100vh;
 
 }
 
@@ -209,6 +211,7 @@ header .navigation ul li {
     color: var(--color-mainBlue);
     font-size: 1.5em;
     margin-left: 3rem;
+    border-bottom: 2px solid var(--color-mainBlue);
 }
 
 /* ---------------------ABOUT--------------- */
@@ -356,6 +359,14 @@ header .navigation ul li {
     width: 40vw;
 }
 
+.firstQuestion .animationQuestion{
+    position: absolute;
+    left: 70%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); 
+}
+
 .secondQuestion{
     width: 100vw;
 }
@@ -492,6 +503,29 @@ header .navigation ul li {
     font-size: 14pt;
 }
 
+#serviceRight a{
+    margin-top: 30px;
+    position: absolute;
+    left: 75%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    color: var(--color-mainBlue);
+    font-weight: 900;
+    font-size: 2em;
+}
+#serviceLeft a{
+    margin-top: 30px;
+    position: absolute;
+    left: 30%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    color: var(--color-mainBlue);
+    font-weight: 900;
+    font-size: 2em;
+}
+
 
 
 
@@ -553,6 +587,7 @@ header .navigation ul li {
     border: 2px solid var(--color-mainBlue);
     text-decoration: none;
     color: var(--color-mainBlue);
+    
     
 }
 

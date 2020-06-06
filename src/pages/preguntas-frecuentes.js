@@ -2,10 +2,28 @@
 import React from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+
+//Lottie
+import Lottie from 'react-lottie'
+import animationSlider from '../components/animations/indexSlider/questions.json'
+
+
 const PreguntasFrecuentas = () =>{
+
+
+    const defaultOptions = {
+        loop: false,
+        autoplay: true, 
+        segments: true,
+        animationData: animationSlider,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        },
+    };
     return(
         <>
         <SEO title="Preguntas Frecuentas" />
+        
         <Layout>
             <div className='mainContainerQuestion'>
                 <div className='firstQuestion'>
@@ -14,6 +32,13 @@ const PreguntasFrecuentas = () =>{
                         Esse voluptatem, magnam libero tempore excepturi dignissimos 
                         ducimus quam atque sapiente error expedita eius, nesciunt id 
                         exercitationem eaque? Et quibusdam molestiae accusamus!</p>
+                        <div className='animationQuestion'>
+                            <Lottie
+                                options={defaultOptions}
+                                width='90vw'
+                                height='90vh'
+                                />
+                        </div>
                 </div>
                 <div className='secondQuestion'>
                     <div id='questionLeft'  className='questionContainer'>

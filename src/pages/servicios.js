@@ -49,18 +49,20 @@ const Servicios = () =>{
                         <p className='textService'>
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                             Autem nobis repellat inventore sequi provident? Quo fuga, earum
-                             eveniet obcaecati quae placeat. Quis voluptatibus corrupti modi a, 
-                             eaque quia temporibus qui!
+                            eveniet obcaecati quae placeat. Quis voluptatibus corrupti modi a, 
+                            eaque quia temporibus qui!
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
+                        
                     </div>
                     <div className='serviceItem' id='serviceLeft'>
                         <p className='textService'>
-
                         Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
                         <br/>
                         <br/>
                         Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/cardioncologia.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>CARDIO-ONCOLOGÍA</h1>
@@ -74,6 +76,7 @@ const Servicios = () =>{
                         <p className='textService'>
                             El ECG (electrocardiograma) mide la actividad eléctrica del corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                     </div>
                     <div className='serviceItem' id='serviceLeft'>
                         <p className='textService'>
@@ -83,6 +86,7 @@ const Servicios = () =>{
                         <br/>
                         Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>ECOCARDIOGRAMA</h1>
@@ -96,6 +100,7 @@ const Servicios = () =>{
                         <br/>
                         Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/ECOCARDIOGRAMA-CON-ESTRES-DE-EJERCICIO.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>ECOCARDIOGRAMA CON <br/> ESTRES DE EJERCICIO</h1>
@@ -109,6 +114,7 @@ const Servicios = () =>{
                         <br/>
                         Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>MONITOREO AMBULATORIO <br/>  DE PRESIÓN ARTERIAL DE <br/> 24 HROAS </h1>
@@ -122,6 +128,7 @@ const Servicios = () =>{
                         <br/>
                         Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>PRUEBA DE ESFUERZO</h1>
@@ -131,6 +138,7 @@ const Servicios = () =>{
                         <p className='textService'>
                             Este examen se utiliza para el estudio de arritmias (palpitaciones, taquicardias) que pueden contribuir al diagnóstico de la ECV.
                         </p>
+                        <Link to='/citas'>Solicita tu cita!</Link>
                         <div className='imgService'>
                             <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
                             <h1>TEST DE HOLTER</h1>
