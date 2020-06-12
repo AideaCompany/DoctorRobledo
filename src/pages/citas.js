@@ -76,6 +76,28 @@ const Citas = () =>{
     const onchangeTime = (value) => {
         setTime(CalculateTime(value/1000))
     }
+
+    const CalculateTime2 = ()=>{
+        var a = new Date((Date.now() ));
+        var year = a.getFullYear();
+        var month = a.getMonth()+1;
+        var date = a.getDate();
+        if(month<10){
+          month = "0"+month
+        }
+        if(date<10){
+          date = "0"+date
+        }
+      
+        var dateString = date + '-' + month   + '-' + year + " 00:00",
+        dateTimeParts = dateString.split(' '),
+        timeParts = dateTimeParts[1].split(':'),
+        dateParts = dateTimeParts[0].split('-'),
+        date;
+      
+        var final = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0], timeParts[0], timeParts[1]);
+        return (final.getTime());
+      }
     const onSubmit = data =>{
         data.fecha = date
         data.hora = time
@@ -286,7 +308,7 @@ const Citas = () =>{
                         </form>
                         <h1 className='chooseDay'>Escoge el día de tu cita </h1>
                         <div className='calendarDate'>
-                            <Calendar  onChange={onChangeCalendar} locale={locale.Calendar}  fullscreen={false} disabledDate={(current)=> current.valueOf() < Date.now()} />
+                            <Calendar  onChange={onChangeCalendar} locale={locale.Calendar}  fullscreen={false} disabledDate={(current)=> current.valueOf() < CalculateTime2()} />
                             <TimePicker disabledHours={()=>[0,1,2,3,4,5,6,7,8,17,18,19,20,21,22,23,24]}  onChange={onchangeTime}  className='horaElegir' size={"large"} placeholder='Elige tu hora' locale={locale.DatePicker} format='HH'></TimePicker>
                         </div>
                     </div>
@@ -296,6 +318,9 @@ const Citas = () =>{
     )
 
 }
+
+
+
 
 
 export default Citas
