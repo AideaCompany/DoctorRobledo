@@ -97,7 +97,7 @@ const Citas = () =>{
       
         var final = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0], timeParts[0], timeParts[1]);
         return (final.getTime());
-      }
+      } 
     const onSubmit = data =>{
         data.fecha = date
         data.hora = time
