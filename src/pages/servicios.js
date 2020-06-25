@@ -25,22 +25,52 @@ const Servicios = () =>{
         <Layout>
             <div className='mainContainerService'>
                 <div className="firstServices">
-                    <h1>Estos son mis servicios</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing 
-                        elit. Officiis necessitatibus architecto quas laudantium
-                        fuga aliquam. Quae dolorem explicabo ducimus quis enim
-                        harum doloribus doloremque nostrum, accusantium accusamus,
-                        que molestias voluptas.</p>
-                        <div className='animationService'>
-                            <Lottie
-                                options={defaultOptions}
-                                width='90vw'
-                                height='90vh'
-                                />
-                        </div>
+                    <h1>Servicios</h1>
+                    <div className='backServices'></div>
+                    <div className='serviceTarget' id="service1">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia doctor robledo kaiser "/>
+                        <h1>CARDIOLOGÍA</h1>
+                    </div>
+                    <div className='serviceTarget' id="service2">
+                        <div className='backServiceTarget'></div>   
+                        <img src="../servicios/cardioncologia.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
+                        <h1>CARDIO-ONCOLOGÍA</h1>
+                    </div>
+                    <div className='serviceTarget' id="service3">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/electrocardiograma.jpg" alt="servicios electrocardiograma doctor robledo kaiser "/>
+                        <h1>ELECTROCARDIOGRAMA</h1>
+                    </div>
+                    <div className='serviceTarget' id="service4">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
+                        <h1>ECOCARDIOGRAMA</h1>
+                    </div>
+                    <div className='serviceTarget' id="service5">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/ECOCARDIOGRAMA-CON-ESTRES-DE-EJERCICIO.jpg" alt="servicios ecocardriograma  doctor robledo kaiser "/>
+                        <h1>ECOCARDIOGRAMA CON <br/> ESTRES DE EJERCICIO</h1>
+                    </div>
+                    <div className='serviceTarget' id="service6">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios prueba de esfuerzo doctor robledo kaiser "/>
+                        <h1>PRUEBA DE ESFUERZO</h1>
+                    </div>
+                    <div className='serviceTarget' id="service7">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios test de holter doctor robledo kaiser "/>
+                        <h1>TEST DE HOLTER</h1>
+                    </div>
+                    <div className='serviceTarget' id="service8">
+                        <div className='backServiceTarget'></div>
+                        <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios monitoreo ambulatorio doctor robledo kaiser "/>
+                        <h1>MONITOREO AMBULATORIO <br/>  DE PRESIÓN ARTERIAL </h1>
+                    </div>
+                    
                 </div>
                
-                <div className='secondService'>
+                {/* <div className='secondService'>
                     <div className='serviceItem ' id='serviceRight'>
                         <div className='imgService'>
                             <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia doctor robledo kaiser "/>
@@ -144,7 +174,7 @@ const Servicios = () =>{
                             <h1>TEST DE HOLTER</h1>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </Layout>
     </>

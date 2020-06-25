@@ -12,7 +12,7 @@
 }
 
 :root {
-  --color-mainBlue: rgb(0, 101, 153);
+  --color-mainBlue: rgb(1, 64, 95);
   --color-cyan: rgb(88, 192, 201);
   --color-darkBlue : #092854;
 }
@@ -37,14 +37,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
-  
+  background-color: var(--color-mainBlue);
 }
+
+
 h1 , h2{
-  color: var(--color-mainBlue) !important;
+  color: #fff !important;
   
-}
-h1 , h2{
-  color: var(--color-mainBlue) !important; 
 }
 .MuiInput-underline:hover:not(.Mui-disabled):before {
   /* border-bottom: 2px solid rgba(0, 0, 0, 0.87); */

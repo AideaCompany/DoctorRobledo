@@ -70,7 +70,7 @@ export default ()=>{
       setInitStyles({
         overflow: "inherit"
       })
-      t2.to(backSlider1, 1 , {width : "10vw" , left: "90%" })
+      t2.to(backSlider1, 1 , {width : "20vw" , left: "85%" })
         .to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
         .to(imgSlider1 , 1 , {opacity: 1, ease: Power4.easeInOut}, "cross" )
         .to(mask1 , 0.5 , {left: "100%", ease: Power4.easeInOut}, )
@@ -105,7 +105,8 @@ export default ()=>{
             setSlideState("03");
             t1.to(".cortina1" , 2 , {left: "-50%" , ease: Power4.easeInOut} , "cross")
               .to(".cortina2" , 2 , {left: "100%", ease: Power4.easeInOut}, "cross")
-              .to(".img3" , 0.5 , {opacity : 1 , ease : Power4.easeInOut , boxShadow: "5px 5px 31px -10px rgba(0,0,0,0.66)"} , )
+              .to(".img3" , 0.5 , {opacity : 1 , ease : Power4.easeInOut })
+              .to(".imgSlider3" , 0.5, {boxShadow: "5px 5px 31px -10px rgba(0,0,0,0.66)", ease: Power4.easeInOut})
               .to(textSlider3, 0.5 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, )            
               .play();  
             setPlay3(true)         
@@ -155,7 +156,7 @@ export default ()=>{
             <div className='backSlider1'></div>
             <div className='imgSlider1'>
               <div className='mask1'></div>
-              <img  src="http://45.55.55.128:1337/uploads/corazon_98e0a61bb8.jpeg" alt="corazon"/>
+              <img  src="https://gestion.drgabrielrobledo.com/uploads/corazon_98e0a61bb8.jpeg" alt="corazon"/>
             </div>
           </div>
         </FullpageSection>
@@ -171,7 +172,7 @@ export default ()=>{
             <div className='backSlider2'></div>
             <div className='imgSlider2'>
               <div className='mask2'></div>
-              <img  src="http://45.55.55.128:1337/uploads/conoceme_5d073e9fda.png" alt="doctor robledo kaiser"/>
+              <img  src="https://gestion.drgabrielrobledo.com/uploads/conoceme_5d073e9fda.png" alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
@@ -187,7 +188,7 @@ export default ()=>{
             <div className='cortina2'></div>
             <div className='imgSlider3'>
               <div className='mask3'></div>
-              <img className='img3' src="http://45.55.55.128:1337/uploads/citas_8727f9b75f.jpeg" alt="doctor robledo kaiser"/>
+              <img className='img3' src="https://gestion.drgabrielrobledo.com/uploads/citas_8727f9b75f.jpeg" alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
@@ -205,7 +206,7 @@ export default ()=>{
             <div className='backSlider4'></div>
             <div className='imgSlider4'>
               <div className='mask4'></div>
-              <img className='img4' src="http://45.55.55.128:1337/uploads/biblioteca_48a7b558b7.jpeg" alt="doctor robledo kaiser"/>
+              <img className='img4' src="https://gestion.drgabrielrobledo.com/uploads/biblioteca_48a7b558b7.jpeg" alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>

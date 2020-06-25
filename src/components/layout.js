@@ -21,14 +21,10 @@ import './css/index.css'
 const Layout =  ({ children }) => {
 
 
-  const style = {
-    backgroundColor : "#fff"
-  }
-
   return (
     <>
         <Header/>
-        <main style={style}>{children}</main>
+        <main>{children}</main>
 
     </>
   )
