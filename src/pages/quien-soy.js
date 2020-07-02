@@ -4,25 +4,8 @@ import SEO from '../components/seo'
 import { graphql , Link } from "gatsby"
 
 
-//Lottie
-import Lottie from 'react-lottie'
-import animationSlider from '../components/animations/indexSlider/gafas.json'
-
 const QuienSoy = () =>{
    
-
-    const animationRef = useRef(null);
-
-    const defaultOptions = {
-      loop: false,
-      autoplay: true, 
-      segments: true,
-      animationData: animationSlider,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      },
-    };
-
     
     return(
         <>
@@ -30,14 +13,17 @@ const QuienSoy = () =>{
         <Layout>
            <div className='mainContainerAbout'>
              <div className='firstAbout'>
-                <h1>¿Quién Soy?</h1>
-                <div className='animationAbout'>
-                  <Lottie
-                    options={defaultOptions}
-                    width='70vw'
-                    height='70vh'
-                    />
+                <div className="firstBack">
+                  <img src="https://gestion.drgabrielrobledo.com/uploads/doctor-1149149_1920_33bbc39896.jpeg" alt="doctor gabriel robledo"/>
                 </div>
+                <div className="back2About"></div>
+                <div className="back3About"></div>
+                <h1>¿Quién Soy?</h1>
+                <p>
+                  Soy el <strong>Dr. Gabriel Robledo Kaiser</strong>  nací el 27 de septiembre de 1950 en Bogotá. 
+                  <br/>
+                  Cuento con más de 40 años de experiencia siendo un reconocido especialista en <strong>Cardiología y Cardio-Oncología.</strong>
+                </p>
              </div>
              <div className='secondAbout'>
                {/* <img  src={imgRobledo} alt="doctor robledo kaiser cardiologo corazon "/> */}
@@ -49,11 +35,6 @@ const QuienSoy = () =>{
                  Revisa mi bibliografía
                </Link>
              </div>
-             <div className='thirdAbout'>
-              <h1>Centro cargiologico de Bogotá</h1>
-              {/* <img src="https://centrocardiobogota.com/wp-content/uploads/revslider/cosmetics3/banner4.jpg" alt="doctor robledo kaiser centro cardiologico de bogota"/> */}
-              <p className='thridDesc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto quae delectus voluptas. Sequi dolorum inventore aperiam fugit sapiente neque placeat odit sed optio eligendi culpa, officiis ad consequuntur soluta ducimus!</p>
-            </div>
            </div>   
         </Layout>
         </>

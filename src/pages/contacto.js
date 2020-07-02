@@ -17,8 +17,40 @@ const useStyles = makeStyles((theme) => ({
       '& .MuiTextField-root': {
         margin: theme.spacing(1),
         width: '40vw',
+        color: "#fff"
       },
+      "& .MuiFormHelperText-root": {
+        color: "#fff"
+      }
     },
+    label: {
+        color: "#fff",
+        "&$focusedLabel": {
+          color: "#fff"
+        },
+        "&$erroredLabel": {
+          color: "#ffff"
+        }
+      },
+      input: {
+          color: "#fff " ,
+          backgroundColor: "inherit",
+          "& .MuiSvgIcon-root":{
+              color:"#fff"
+          }
+      },
+      focusedLabel: {},
+      erroredLabel: {},
+      underline: {
+        borderBottom: "2px solid #fff",
+        "&$error:after": {
+          borderBottomColor: "#fff"
+        },
+        "&:after": {
+          borderBottom: `2px solid #fff`
+        }
+      },
+      error: {}
   }));
 
 const Contacto = () =>{
@@ -159,6 +191,20 @@ const Contacto = () =>{
                             inputRef={register({ required: true })} 
                             id="standard-basic" 
                             label="Nombre"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             SelectProps={{
                                 native: true,
                             }}
@@ -170,6 +216,20 @@ const Contacto = () =>{
                             name='documentoTipo'
                             select
                             label="Tipo de documento"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             inputRef={register({ required: true })} 
                             SelectProps={{
                                 native: true,
@@ -186,6 +246,20 @@ const Contacto = () =>{
                             inputRef={register({ required: true })} 
                             id="standard-basic" 
                             label="Documento"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             SelectProps={{
                                 native: true,
                             }}
@@ -196,6 +270,20 @@ const Contacto = () =>{
                             inputRef={register} 
                             id="standard-basic" 
                             label="Celular"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error,
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             SelectProps={{
                                 native: true,
                             }}
@@ -206,6 +294,20 @@ const Contacto = () =>{
                             inputRef={register} 
                             id="standard-basic" 
                             label="Asunto"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             SelectProps={{
                                 native: true,
                             }}
@@ -216,6 +318,20 @@ const Contacto = () =>{
                             inputRef={register({ required: true })}
                             id="standard-basic" 
                             label="Mensaje"
+                            InputProps={{
+                                className: classes.input,
+                                classes: {
+                                    root: classes.underline,
+                                    error: classes.error
+                                  }
+                            }}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.label,
+                                    focused: classes.focusedLabel,
+                                    error: classes.erroredLabel
+                                  },
+                            }}
                             SelectProps={{
                                 native: true,
                             }}

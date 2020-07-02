@@ -13,7 +13,7 @@ export default function Header () {
         <header>
             <Link to='/' className='mainHeader'>
                 <h1>Dr. Gabriel Robledo Kaiser</h1>
-                <h2>Crdiologo</h2>
+                <h2>Cardiologo</h2>
             </Link>
             <div className='navigation'>
                 <ul>

@@ -26,11 +26,43 @@ const Citas = () =>{
     const useStyles = makeStyles((theme) => ({
         root: {
           '& .MuiTextField-root': {
-            margin: theme.spacing(0),
+            margin: theme.spacing(1),
             width: '30vw',
+            color: "#fff"
           },
+          "& .MuiFormHelperText-root": {
+            color: "#fff"
+          }
         },
-    }));
+        label: {
+            color: "#fff",
+            "&$focusedLabel": {
+              color: "#fff"
+            },
+            "&$erroredLabel": {
+              color: "#ffff"
+            }
+          },
+          input: {
+              color: "#fff " ,
+              backgroundColor: "inherit",
+              "& .MuiSvgIcon-root":{
+                  color:"#fff"
+              }
+          },
+          focusedLabel: {},
+          erroredLabel: {},
+          underline: {
+            borderBottom: "2px solid #fff",
+            "&$error:after": {
+              borderBottomColor: "#fff"
+            },
+            "&:after": {
+              borderBottom: `2px solid #fff`
+            }
+          },
+          error: {}
+      }));
 
     const { register, handleSubmit, watch, errors } = useForm();
 
@@ -228,6 +260,20 @@ const Citas = () =>{
                                 inputRef={register({ required: true })} 
                                 id="standard-basic" 
                                 label="Nombre completo"
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -239,6 +285,20 @@ const Citas = () =>{
                                 inputRef={register({ required: true })} 
                                 id="standard-basic" 
                                 label="Correo electrónico"
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -251,6 +311,20 @@ const Citas = () =>{
                                 select
                                 label="Tipo de documento"
                                 inputRef={register({ required: true })} 
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -266,6 +340,20 @@ const Citas = () =>{
                                 inputRef={register({ required: true })} 
                                 id="standard-basic" 
                                 label="Documento"
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -278,19 +366,27 @@ const Citas = () =>{
                                 select
                                 label="Tipo de cita"
                                 inputRef={register({ required: true })} 
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}
                                 helperText={errors.tipo_de_consulta ? "Por favor, el servicio" : ''}>
                                     <option disabled selected value="">{""}</option>
                                     <option value="Consulta de cardiología">Consulta de cardiología</option>
-                                    <option value="Consulta de cardio-oncología">Consulta de cardio-oncología</option>
-                                    <option value="Electrocardiograma">Electrocardiograma</option>
-                                    <option value="Prueba de esfuerzo">Prueba de esfuerzo</option>
-                                    <option value="Ecocardiograma">Ecocardiograma</option>
-                                    <option value="Ecocardiograma con estrés de ejercicio">Ecocardiograma con estrés de ejercicio</option>
-                                    <option value="Monitoreo ambulatorio de presión arterial de 24H">Monitoreo ambulatorio de presión arterial de 24H</option>
-                                    <option value="Test de holter 24H">Test de holter 24h</option>
+                                    <option value="Examen">Examen</option>
                                 ))}
                             </TextField>
 
@@ -300,6 +396,20 @@ const Citas = () =>{
                                 inputRef={register} 
                                 id="standard-basic" 
                                 label="Celular"
+                                InputProps={{
+                                    className: classes.input,
+                                    classes: {
+                                        root: classes.underline,
+                                        error: classes.error
+                                      }
+                                }}
+                                InputLabelProps={{
+                                    classes: {
+                                        root: classes.label,
+                                        focused: classes.focusedLabel,
+                                        error: classes.erroredLabel
+                                      },
+                                }}
                                 SelectProps={{
                                     native: true,
                                 }}

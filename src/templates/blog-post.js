@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const BlogPostsTemplate = ({data}) => { 
-    const URL = 'http://45.55.55.128:1337'
+    const URL = 'https://gestion.drgabrielrobledo.com'
     return(
         <>
         <SEO title={data.strapiBlogs.titulo} />
@@ -12,7 +12,9 @@ const BlogPostsTemplate = ({data}) => {
             <div className='mainContainerTemplate'>
                 <h1 className='titleTemplate'>{data.strapiBlogs.titulo}</h1>
                 <img className='mainImgTemplate' src={`${URL}${data.strapiBlogs.imagen[0].url}`} alt={data.strapiBlogs.titulo}/>
-                <p className='contentTemplate'>{data.strapiBlogs.contenido} <br/> {data.strapiBlogs.contenido} </p>
+                <div className='containerTextBlog'>
+                    <p className='contentTemplate'>{data.strapiBlogs.contenido} <br/> {data.strapiBlogs.contenido} </p>
+                </div>
             </div>
         </Layout>
         </>
@@ -30,6 +32,5 @@ export const query = graphql`
         imagen {
         url
         }
-
     }
   }`

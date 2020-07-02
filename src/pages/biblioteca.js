@@ -16,7 +16,7 @@ const {Meta} = Card
 const Biblioteca = ({data}) =>{
     const dataQuery = data.allStrapiBlogs.edges
 
-        const URL = 'http://45.55.55.128:1337'
+        const URL = 'https://gestion.drgabrielrobledo.com'
 
         const dataList = []
         const dataMain = []
@@ -63,8 +63,9 @@ const Biblioteca = ({data}) =>{
                     <div className='firstBiblioteca'>
                         <h1>Biblioteca</h1>
                         <p>Encuentra diversas noticias y articulos de interés</p>
+                        <div className='backBiblioteca'></div>
                         <div className='animationBiblioteca'>
-                            <img src="../temp/biblioteca.svg" alt="biblioteca articulos doctor robledo kaiser "/>
+                            <img src="https://gestion.drgabrielrobledo.com/uploads/biblioteca_9826e64e0f.jpeg" alt="biblioteca articulos doctor robledo kaiser "/>
                         </div>
                     </div>
                     </FullpageSection>
