@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import {  Link } from "gatsby"
@@ -9,7 +9,12 @@ gsap.registerPlugin(CSSPlugin)
 
 const Servicios = () =>{
 
+    const [targetIn, setTargetIn] = useState(false)
+    const [targetOut, setTargetOut] = useState(false)
+
     const t1 = new TimelineMax({paused: true});
+    const t2 = new TimelineMax({paused: true});
+    const t3 = new TimelineMax({paused: true});
 
     useEffect(() => {
         t1.to(".backServices", 0.5 , {width: "80vw", ease:  Power4.easeInOut})
@@ -19,6 +24,34 @@ const Servicios = () =>{
           .play()
     }, [])
 
+    const onMouseEnterTarget = (id, id2) =>{
+        t2.to(id, 0.3 , {opacity: 0}, "cross")
+          .to(`${id2} h1`, 0.3 , {opacity: 0}, "cross")
+          if (!targetIn) {
+              t2.play()
+              setTargetIn(true)
+          }else{
+              t2.restart()
+          }
+          t3.eventCallback("onComplete", ()=>{
+            t3.clear()
+          })
+        //   
+    }
+    const onMouseLeaveTarget = (id, id2) =>{
+        t3.to(id, 0.3 , {opacity: 1}, "cross")
+          .to(`${id2} h1`, 0.3 , {opacity: 1}, "cross")
+          if (!targetOut) {
+              t3.play()
+              setTargetOut(true)
+          }else{
+              t3.restart()
+          }
+          t2.eventCallback("onComplete", ()=>{
+            t2.clear()
+          })
+    }
+
     return(
     <>
         <SEO title="Servicios" />
@@ -27,164 +60,58 @@ const Servicios = () =>{
                 <div className="firstServices">
                     <h1>Servicios</h1>
                     <div className='backServices'></div>
-                    <Link to="/servicios/contrapulsacion" className='serviceTarget' id="service1">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget1' , "#service1")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget1', "#service1")} to="/servicios/contrapulsacion" className='serviceTarget' id="service1">
+                        <div className='backServiceTarget' id="backServiceTarget1"></div>
                         <img src="../servicios/contrapulsacion.jpg" alt="servicios ccontrapulsación externa bogotá colombia doctor robledo kaiser "/>
                         <h1>CONTRAPULSAIÓN <br/> EXTERNA</h1>
                     </Link>
-                    <Link to="/servicios/rigidez-arterial" className='serviceTarget' id="service2">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget2' , "#service2")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget2', "#service2")}  to="/servicios/rigidez-arterial" className='serviceTarget' id="service2">
+                        <div className='backServiceTarget' id="backServiceTarget2"></div>
                         <img src="../servicios/rigidez-arterial.jpg" alt="servicios rigidez arterial bogotá colombia doctor robledo kaiser "/>
                         <h1>RIGIDEZ ARTERIAL</h1>
                     </Link>
-                    <Link to="/servicios/cardiologia" className='serviceTarget' id="service3">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget3' , "#service3")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget3', "#service3")}  to="/servicios/cardiologia" className='serviceTarget' id="service3">
+                        <div className='backServiceTarget' id="backServiceTarget3"></div>
                         <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia bogotá colombia doctor robledo kaiser "/>
                         <h1>CARDIOLOGÍA</h1>
                     </Link>
-                    <Link to="/servicios/cardiooncologia" className='serviceTarget' id="service4">
-                        <div className='backServiceTarget'></div>   
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget4' , "#service4")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget4', "#service4")}  to="/servicios/cardiooncologia" className='serviceTarget' id="service4">
+                        <div className='backServiceTarget' id="backServiceTarget4"></div>   
                         <img src="../servicios/cardioncologia.jpg" alt="servicios cardio bogotá colombia oncologia doctor robledo kaiser "/>
                         <h1>CARDIO ONCOLOGÍA</h1>
                     </Link>
-                    <Link to="/servicios/electrocardiograma"  className='serviceTarget' id="service5">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget5' , "#service5")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget5', "#service5")}  to="/servicios/electrocardiograma"  className='serviceTarget' id="service5">
+                        <div className='backServiceTarget' id="backServiceTarget5"></div>
                         <img src="../servicios/electrocardiograma.jpg" alt="servicios bogotá colombia electrocardiograma doctor robledo kaiser "/>
                         <h1>ELECTROCARDIOGRAMA</h1>
                     </Link>
-                    <Link to="/servicios/ecocardiograma"  className='serviceTarget' id="service6">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget6' , "#service6")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget6', "#service6")}  to="/servicios/ecocardiograma"  className='serviceTarget' id="service6">
+                        <div className='backServiceTarget' id="backServiceTarget6"></div>
                         <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio  oncologia bogotá colombia doctor robledo kaiser "/>
                         <h1>ECOCARDIOGRAMA</h1>
                     </Link>
-                    <Link to="/servicios/rehabilitacion-cardiaca" className='serviceTarget' id="service7">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget7' , "#service7")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget7', "#service7")}  to="/servicios/rehabilitacion-cardiaca" className='serviceTarget' id="service7">
+                        <div className='backServiceTarget' id="backServiceTarget7"></div>
                         <img src="../servicios/rehabilitacion-cardiaca.jpg" alt="servicios ecocardriograma bogotá colombia  doctor robledo kaiser "/>
                         <h1>REHABILITACIÓN CARDIACA</h1>
                     </Link>
-                    <Link to="/servicios/prueba-de-esfuerzo" className='serviceTarget' id="service8">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget8' , "#service8")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget8', "#service8")}  to="/servicios/prueba-de-esfuerzo" className='serviceTarget' id="service8">
+                        <div className='backServiceTarget' id="backServiceTarget8"></div>
                         <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios prueba de esfuerzo bogotá colombia doctor robledo kaiser "/>
                         <h1>PRUEBA DE ESFUERZO</h1>
                     </Link>
-                    <Link to="/servicios/test-de-holter"  className='serviceTarget' id="service9">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget9' , "#service9")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget9', "#service9")}  to="/servicios/test-de-holter"  className='serviceTarget' id="service9">
+                        <div className='backServiceTarget' id="backServiceTarget9"></div>
                         <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios test de holter bogotá colombia doctor robledo kaiser "/>
                         <h1>TEST DE HOLTER</h1>
                     </Link>
-                    <Link to="/servicios/monitoreo-de-presion-arterial"  className='serviceTarget' id="service10">
-                        <div className='backServiceTarget'></div>
+                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget10' , "#service10")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget10', "#service10")}  to="/servicios/monitoreo-de-presion-arterial"  className='serviceTarget' id="service10">
+                        <div className='backServiceTarget' id="backServiceTarget10"></div>
                         <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios monitoreo ambulatorio bogotá colombia  doctor robledo kaiser "/>
                         <h1>MONITOREO DE PRESIÓN ARTERIAL </h1>
                     </Link>
                     
                 </div>
-               
-                {/* <div className='secondService'>
-                    <div className='serviceItem ' id='serviceRight'>
-                        <div className='imgService'>
-                            <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia doctor robledo kaiser "/>
-                            <h1>CARDIOLOGÍA</h1>
-                        </div>
-                        <p className='textService'>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Autem nobis repellat inventore sequi provident? Quo fuga, earum
-                            eveniet obcaecati quae placeat. Quis voluptatibus corrupti modi a, 
-                            eaque quia temporibus qui!
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        
-                    </div>
-                    <div className='serviceItem' id='serviceLeft'>
-                        <p className='textService'>
-                        Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
-                        <br/>
-                        <br/>
-                        Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/cardioncologia.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>CARDIO-ONCOLOGÍA</h1>
-                        </div>
-                    </div>
-                    <div className='serviceItem ' id='serviceRight'>
-                        <div className='imgService'>
-                            <img src="../servicios/electrocardiograma.jpg" alt="servicios electrocardiograma doctor robledo kaiser "/>
-                            <h1>ELECTROCARDIOGRAMA</h1>
-                        </div>
-                        <p className='textService'>
-                            El ECG (electrocardiograma) mide la actividad eléctrica del corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                    </div>
-                    <div className='serviceItem' id='serviceLeft'>
-                        <p className='textService'>
-
-                        Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
-                        <br/>
-                        <br/>
-                        Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>ECOCARDIOGRAMA</h1>
-                        </div>
-                    </div>
-                    <div className='serviceItem' id='serviceRight'>
-                        <p className='textService'>
-
-                        Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
-                        <br/>
-                        <br/>
-                        Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/ECOCARDIOGRAMA-CON-ESTRES-DE-EJERCICIO.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>ECOCARDIOGRAMA CON <br/> ESTRES DE EJERCICIO</h1>
-                        </div>
-                    </div>
-                    <div className='serviceItem' id='serviceLeft'>
-                        <p className='textService'>
-
-                        Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
-                        <br/>
-                        <br/>
-                        Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>MONITOREO AMBULATORIO <br/>  DE PRESIÓN ARTERIAL DE <br/> 24 HROAS </h1>
-                        </div>
-                    </div>
-                    <div className='serviceItem' id='serviceRight'>
-                        <p className='textService'>
-
-                        Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón.
-                        <br/>
-                        <br/>
-                        Por eso acá encontrarás especialistas que desean que te mejores en las mejores condiciones, si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>PRUEBA DE ESFUERZO</h1>
-                        </div>
-                    </div>
-                    <div className='serviceItem' id='serviceLeft'>
-                        <p className='textService'>
-                            Este examen se utiliza para el estudio de arritmias (palpitaciones, taquicardias) que pueden contribuir al diagnóstico de la ECV.
-                        </p>
-                        <Link to='/citas'>Solicita tu cita!</Link>
-                        <div className='imgService'>
-                            <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios cardio oncologia doctor robledo kaiser "/>
-                            <h1>TEST DE HOLTER</h1>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </Layout>
     </>

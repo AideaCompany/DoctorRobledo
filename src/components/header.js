@@ -3,7 +3,8 @@ import {Link} from 'gatsby'
 
 //fontawesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFacebookF, faInstagram , faYoutube , faLinkedinIn}from '@fortawesome/free-brands-svg-icons'
+import {faFacebookF, faInstagram , faYoutube , faLinkedinIn,} from '@fortawesome/free-brands-svg-icons'
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Header () {
@@ -26,7 +27,12 @@ export default function Header () {
             </div>
         </header>
         <div className='verticalFooter'>
-            <ul>
+            <ul>   
+                <li>
+                    <Link to="/citas">
+                        <FontAwesomeIcon icon={faCalendarAlt}/>
+                    </Link>
+                </li>
                 <li>
                     <a href="#">
                         <FontAwesomeIcon icon={faFacebookF}/>

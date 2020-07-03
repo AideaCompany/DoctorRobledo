@@ -72,9 +72,9 @@ export default ()=>{
       })
       t2.to(backSlider1, 1 , {width : "20vw" , left: "85%" })
         .to(textSlider1, 1 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
-        .to(imgSlider1 , 1 , {opacity: 1, ease: Power4.easeInOut}, "cross" )
+        .to([imgSlider1,".serviceIndex"] , 1 , {opacity: 1, ease: Power4.easeInOut}, "cross" )
         .to(mask1 , 0.5 , {left: "100%", ease: Power4.easeInOut}, )
-        .to(imgSlider1 , 0.3 , {boxShadow: "5px 5px 31px -10px rgba(0,0,0,0.66)"})
+        .to([imgSlider1] , 0.3 , {boxShadow: "5px 5px 31px -10px rgba(0,0,0,0.66)"})
         .to(".scrollIcon", 0.5 , {opacity: 1, ease : Power4.easeInOut} ) 
         .play()
     })
@@ -151,9 +151,20 @@ export default ()=>{
             <div className='one textSlider1' id='leftSlider'>
               <h1>Tu corazón</h1>
               <p>Nuestro compromiso</p>
-              <Link to="/servicios">Te invito a conocer mis servicios</Link>
+              <Link className='linkToService' to="/servicios">Te invito a conocer mis servicios</Link>
             </div>
-            <div className='backSlider1'></div>
+            <Link to='servicios/cardiologia' className='serviceIndex' id="iconService1">
+              <img className='iconServiceIndex' src="../index/cardiology.svg" alt="cardiologia doctor robledo bogotá colombia"/>
+              <h1>Cardiología</h1>
+            </Link>
+            <Link to='servicios/contrapulsacion' className="serviceIndex" id="iconService2" >
+              <img className='iconServiceIndex' src="../index/Contrapulsacion.svg" alt="contrapulsacion doctor robledo bogotá colombia"/>
+              <h1>Contrapulsación externa</h1>
+            </Link>
+            <Link to='servicios/rigidez-arterial' className="serviceIndex" id="iconService3">
+              <img className='iconServiceIndex' src="../index/rigidez-arterial.svg" alt="rigidez arterial doctor robledo bogotá colombia"/>
+              <h1>Rigidez Arterial</h1>
+            </Link>
             <div className='imgSlider1'>
               <div className='mask1'></div>
               <img  src="https://gestion.drgabrielrobledo.com/uploads/corazon_98e0a61bb8.jpeg" alt="corazon"/>
@@ -164,10 +175,11 @@ export default ()=>{
           <div className='itemSlider' >
             <div className='one textSlider2' id='leftSlider'>
               <h1>Un poco sobre mi</h1>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae id hic 
-                officiis aliquid sequi ratione labore possimus tenetur consectetur eligendi. 
-                Ex odit quod nesciunt maxime hic magni quibusdam. Optio, est.</p>
-              <Link to="/quien-soy">Te invito a visitar conocer más sobre mi</Link>
+              <p>
+              Soy el <strong>Dr. Gabriel Robledo Kaiser</strong>  nací el 27 de septiembre de 1950 en Bogotá. 
+                  Cuento con más de 40 años de experiencia siendo un reconocido especialista en <strong>Cardiología y Cardio-Oncología.</strong>
+              </p>
+              <Link className='linkToService' to="/quien-soy">Te invito a visitar conocer más sobre mi</Link>
             </div>
             <div className='backSlider2'></div>
             <div className='imgSlider2'>
@@ -181,7 +193,7 @@ export default ()=>{
             <div className='one textSlider3' id='rightSlider'>
                 <h1>Reserva tu cita</h1>
                 <p>Juntos encontraremos el problema</p>
-                <Link to="/citas">Reserva tu cita.</Link>
+                <Link className='linkToService' to="/citas">Reserva tu cita.</Link>
             </div>
             <div className='backSlider3'></div>
             <div className='cortina1'></div>
@@ -198,10 +210,8 @@ export default ()=>{
              <h1>Biblioteca</h1>
              <p>Lorem ipsum, dolor sit amet consectetur 
                adipisicing elit. Sint eum provident aliquid 
-               rerum ratione nulla asperiores eveniet error et 
-               tempore. Asperiores placeat accusamus quo quos 
-               neque distinctio enim at dolorum.</p>
-             <Link to="/biblioteca">Revisa mi biblioteca</Link>
+               rerum ratione nulla </p>
+             <Link className='linkToService' to="/biblioteca">Revisa mi biblioteca</Link>
             </div>
             <div className='backSlider4'></div>
             <div className='imgSlider4'>

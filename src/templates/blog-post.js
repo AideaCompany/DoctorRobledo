@@ -11,8 +11,8 @@ const BlogPostsTemplate = ({data}) => {
         <Layout>
             <div className='mainContainerTemplate'>
                 <h1 className='titleTemplate'>{data.strapiBlogs.titulo}</h1>
-                <img className='mainImgTemplate' src={`${URL}${data.strapiBlogs.imagen[0].url}`} alt={data.strapiBlogs.titulo}/>
                 <div className='containerTextBlog'>
+                    <img className='mainImgTemplate' src={`${URL}${data.strapiBlogs.imagen[0].url}`} alt={data.strapiBlogs.titulo}/>
                     <p className='contentTemplate'>{data.strapiBlogs.contenido} <br/> {data.strapiBlogs.contenido} </p>
                 </div>
             </div>

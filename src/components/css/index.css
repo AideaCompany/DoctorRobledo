@@ -54,7 +54,6 @@ header .navigation {
 header .navigation a {
     text-decoration: none;
     color: #fff;
-    font-weight: 700;
 }
 
 header .navigation ul {
@@ -168,32 +167,57 @@ header .navigation ul li {
 }
 .itemSlider .one h1 {
     font-weight: 900;
-    font-size: 3em;
-    margin-left: 3rem;
+    font-size: 4em;
+    margin-left: 2rem;
 }
-.itemSlider .one h2 {
-    font-weight: 900;
-    font-size: 2em;
-    margin-left: 3rem;
-}
+
 .itemSlider .one p {
     font-size: 1.5em;
-    margin-left: 3rem;
+    margin-left: 2rem;
     max-width: 40vw;
 }
 
-.itemSlider a {
+.itemSlider  .linkToService {
     text-decoration: none;
     color: #fff;
     font-size: 1.5em;
-    margin-left: 3rem;
+    margin-left: 2rem;
     border-bottom: 2px solid #fff;
+}
+
+.serviceIndex{
+    position: absolute;
+    width: 15vw;
+    top: 87%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+}
+.serviceIndex h1{
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+.iconServiceIndex{
+    height: 100px;
+   width: 100px;
+   object-fit: cover;
+}
+
+#iconService1{
+    left: 40%; 
+}
+#iconService2{
+    left: 60%; 
+}
+#iconService3{
+    left: 80%; 
 }
 
 .imgSlider1{
     position: absolute;
     top: 50%;
-    left: 65%;
+    left: 60%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     width: 50vw;
@@ -226,7 +250,19 @@ header .navigation ul li {
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
+    z-index: 2;
+    -webkit-box-shadow: 10px 10px 43px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 43px -17px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 43px -17px rgba(0,0,0,0.75);
 }
+
+.backSlider1  div{
+    width: 100%;
+    height: 23.33vh;
+    position: relative;
+    opacity: 0;
+}
+
 
 .imgSlider2{
     position: absolute;
@@ -380,7 +416,7 @@ header .navigation ul li {
 }
 
 .textSlider4 a{
-    border-bottom: 2px solid var(--color-mainBlue);
+    border-bottom: 2px solid var(--color-mainBlue) !important;
 }
 
 .backSlider4{
@@ -406,15 +442,17 @@ header .navigation ul li {
 .firstAbout{
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     position: relative;
     
 }
 
+
 .firstBack{
     width: 40vw;
     height: 70vh;
-    position: absolute;
+    position: fixed;
     left: 65%;
     top: 55%;
     transform: translate(-50%, -50%);
@@ -423,6 +461,7 @@ header .navigation ul li {
     -webkit-box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
+    z-index: 4;
 }
 .firstBack img{
     width: 40vw;
@@ -433,7 +472,7 @@ header .navigation ul li {
 .back2About{
     width: 20vw;
     height: 50vh;
-    position: absolute;
+    position: fixed;
     left: 85%;
     top: 70%;
     transform: translate(-50%, -50%);
@@ -443,120 +482,42 @@ header .navigation ul li {
     
 }
 
-
-/* .back3About{
-    width: 20vw;
-    height: 50vh;
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    background-color:var(--color-cyan);
-    z-index: -1;
-    -webkit-box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 51px -28px rgba(0,0,0,0.75);
-    
-} */
 .firstAbout h1{
-    position: absolute;
+    position: fixed;
     left: 10%;
-    top: 50%;
+    top: 30%;
     transform: translate(0%, -50%);
     -webkit-transform: translate(0%, -50%);
     font-size: 5em;
     text-align: center;
-    z-index: 2;
+    z-index: 4;
     
 }
-.firstAbout p{
+
+.textAbout{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    width: 30vw;
+    overflow-y: hidden;
+    z-index: 1;
+    
+}
+.textAbout p{
     color: #fff;
-    position: absolute;
-    left: 10%;
-    top: 70%;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-    width: 30vw;
     font-size: 1.5em;
 }
 
-
-.secondAbout , .thirdAbout{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-.secondAbout img{
-    position: absolute;
-    left: 25%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    width: 30vw;
-    height: 80vh;
-    object-fit: cover;
-
-}
-
-.secondAbout p{
-    position: absolute;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-    padding: 5vh;
-    font-size: 1.5em;
-}
-
-.secondAbout a{
-    position: absolute;
-    width: 50%;
-    left: 50%;
-    top: 75%;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-    width: 200px;
-    height: 50px;
-    background-color: #fff;
-    color: var(--color-mainBlue);
-    border: 2px solid var(--color-mainBlue);
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.secondAbout #link1{
-    left: 60%;
-}
-.secondAbout #link2{
-    left: 80%;
-}
-
-.thirdAbout h1{
-    position: absolute;
-    left: 10%;
-    top: 20vh;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-}
-.thirdAbout .thridDesc{
-    position: absolute;
-    left: 10%;
-    top: 40vh;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-    width: 30vw;
-}
-.thirdAbout img{
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(0%, -50%);
-    -webkit-transform: translate(0%, -50%);
-    width: 40vw;
+.backText{
+    width: 50vw;
+    height: 40vh;
+    background-color: var(--color-mainBlue);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
 }
 
 
@@ -666,6 +627,10 @@ header .navigation ul li {
     -webkit-transform: translate(-50%, 0%); 
     opacity: 0;
     overflow: hidden;
+    -webkit-box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
+    box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
+    
 }
 
 .backServices{
@@ -738,29 +703,30 @@ header .navigation ul li {
     width: 28vh;
     height: 35vh;
     object-fit: cover;
+    
 }
 
 .serviceTarget h1{
     position: absolute;
     left: 50%;
-    top: 87%;
+    top: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%); 
-    font-size: 1.1em !important;
+    font-size: 1.3em !important;
     width: 100%;
     text-align: center;
-    /* color: var(--color-mainBlue) !important; */
+    color: var(--color-mainBlue) !important;
     font-weight: 900;
     
 }
 
 .backServiceTarget{
     position: absolute;
-    width: 28vh;
-    height:10vh;
+    width: 100%;
+    height:35vh;
     left: 0;
-    top: 75%;
-    background: rgba(1, 64, 95, 0.7);
+    top: 0%;
+    background: var(--color-cyan);
 }
 
 
@@ -1122,35 +1088,35 @@ header .navigation ul li {
 }
 
 .mainContainerTemplate .titleTemplate{
-    position: absolute;
-    left: 50%;
-    top: 20vh;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+    margin-top: 20vh;
+    text-align: center;
+    width: 100%;
+    padding: 0 10vw 0  10vw;
     font-size: 4em;
 }
 
 .mainContainerTemplate .containerTextBlog{
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 50vh;
-    min-height: 70vh;
+    top: 10vh;
+    height: auto;
     transform: translate(-50%, 0%);
     -webkit-transform: translate(-50%, 0%);
     width: 70%;
     background: #fff;
 }
 .containerTextBlog p {
-    padding-top: 37vh;
+    padding-top: 5vh;
     font-size: 14pt;
     padding-right: 5vw;
     padding-left: 5vw;
+    padding-bottom: 5vh;
 }
 
 .mainContainerTemplate .mainImgTemplate{
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 30vh;
+    top:  -10vh;
     transform: translate(-50%, 0%);
     -webkit-transform: translate(-50%, 0%);
     width: 50vw;

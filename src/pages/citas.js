@@ -135,13 +135,13 @@ const Citas = () =>{
         data.hora = time
 
         axios.post(
-            "http://45.55.55.128:1337/citas",
+            "https://gestion.drgabrielrobledo.com/citas",
             data,
             {headers: {"Accept": "application/json"}}
         ).then(res=>{
             message.loading({content: "Generando cita...", key: "updatable"})
             axios.post(
-                "http://45.55.55.128:1337/email",
+                "https://gestion.drgabrielrobledo.com/email",
                 {
                     'to' : `${data.correo}`,
                     'bcc' : "soporte@aidea.com.co",
