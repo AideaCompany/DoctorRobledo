@@ -102,11 +102,11 @@ const Citas = () =>{
     const classes = useStyles();
 
     const onChangeCalendar = (value) => {
-        setDate(CalculateDate(value/1000))
+        setDate(value.format("YYYY-MM-DD"))
     }
 
     const onchangeTime = (value) => {
-        setTime(CalculateTime(value/1000))
+        setTime(value.format("HH:mm:ss.SSS"))
     }
 
     const CalculateTime2 = ()=>{
@@ -332,7 +332,7 @@ const Citas = () =>{
                                     <option disabled selected value="">{""}</option>
                                     <option value="cedula">Cédula de ciudadania</option>
                                     <option value="pasaporte">Pasaporte</option>
-                                ))}
+                                
                             </TextField>
                             {/* Documento */}
                             <TextField 
@@ -387,7 +387,6 @@ const Citas = () =>{
                                     <option disabled selected value="">{""}</option>
                                     <option value="Consulta de cardiología">Consulta de cardiología</option>
                                     <option value="Examen">Examen</option>
-                                ))}
                             </TextField>
 
                             {/* Celular */}
