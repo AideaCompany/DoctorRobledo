@@ -102,11 +102,11 @@ const Citas = () =>{
     const classes = useStyles();
 
     const onChangeCalendar = (value) => {
-        setDate(CalculateDate(value/1000))
+        setDate(value.format("YYYY-MM-DD"))
     }
 
     const onchangeTime = (value) => {
-        setTime(CalculateTime(value/1000))
+        setTime(value.format("HH:mm:ss.SSS"))
     }
 
     const CalculateTime2 = ()=>{
@@ -135,13 +135,13 @@ const Citas = () =>{
         data.hora = time
 
         axios.post(
-            "http://45.55.55.128:1337/citas",
+            "https://gestion.drgabrielrobledo.com/citas",
             data,
             {headers: {"Accept": "application/json"}}
         ).then(res=>{
             message.loading({content: "Generando cita...", key: "updatable"})
             axios.post(
-                "http://45.55.55.128:1337/email",
+                "https://gestion.drgabrielrobledo.com/email",
                 {
                     'to' : `${data.correo}`,
                     'bcc' : "soporte@aidea.com.co",
@@ -332,7 +332,7 @@ const Citas = () =>{
                                     <option disabled selected value="">{""}</option>
                                     <option value="cedula">Cédula de ciudadania</option>
                                     <option value="pasaporte">Pasaporte</option>
-                                ))}
+                                
                             </TextField>
                             {/* Documento */}
                             <TextField 
@@ -387,7 +387,6 @@ const Citas = () =>{
                                     <option disabled selected value="">{""}</option>
                                     <option value="Consulta de cardiología">Consulta de cardiología</option>
                                     <option value="Examen">Examen</option>
-                                ))}
                             </TextField>
 
                             {/* Celular */}

@@ -59,7 +59,7 @@ const Contacto = () =>{
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
         axios.post(
-            "http://45.55.55.128:1337/email",
+            "https://gestion.drgabrielrobledo.com/email",
             {
                 'to' : "joeldzv95@gmail.com",
                 'subject' : "Nuevo Mensage desde www.drgabrielrobledo.com",
@@ -238,7 +238,6 @@ const Contacto = () =>{
                                 <option disabled selected value="">{""}</option>
                                 <option value="cedula">Cédula de ciudadania</option>
                                 <option value="pasaporte">Pasaporte</option>
-                            ))}
                         </TextField>
                         {/* Documento */}
                         <TextField 
