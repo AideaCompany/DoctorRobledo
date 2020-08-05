@@ -630,7 +630,6 @@ header .navigation ul li {
     -webkit-box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
     box-shadow: 10px 7px 23px -16px rgba(0,0,0,0.75);
-    
 }
 
 .backServices{
@@ -717,6 +716,7 @@ header .navigation ul li {
     text-align: center;
     color: var(--color-mainBlue) !important;
     font-weight: 900;
+    transition: 0.3s ease-in-out;
     
 }
 
@@ -727,6 +727,14 @@ header .navigation ul li {
     left: 0;
     top: 0%;
     background: var(--color-cyan);
+    transition: 0.3s ease-in-out;
+}
+
+.serviceTarget:hover > .backServiceTarget{
+    opacity: 0;
+}
+.serviceTarget:hover > h1{
+    opacity: 0;
 }
 
 
@@ -1104,8 +1112,9 @@ header .navigation ul li {
     -webkit-transform: translate(-50%, 0%);
     width: 70%;
     background: #fff;
+    margin-bottom:10vh ;
 }
-.containerTextBlog p {
+.containerTextBlog div {
     padding-top: 5vh;
     font-size: 14pt;
     padding-right: 5vw;

@@ -60,52 +60,52 @@ const Servicios = () =>{
                 <div className="firstServices">
                     <h1>Servicios</h1>
                     <div className='backServices'></div>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget1' , "#service1")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget1', "#service1")} to="/servicios/contrapulsacion" className='serviceTarget' id="service1">
+                    <Link to="/servicios/contrapulsacion" className='serviceTarget' id="service1">
                         <div className='backServiceTarget' id="backServiceTarget1"></div>
                         <img src="../servicios/contrapulsacion.jpg" alt="servicios ccontrapulsación externa bogotá colombia doctor robledo kaiser "/>
                         <h1>CONTRAPULSAIÓN <br/> EXTERNA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget2' , "#service2")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget2', "#service2")}  to="/servicios/rigidez-arterial" className='serviceTarget' id="service2">
+                    <Link to="/servicios/rigidez-arterial" className='serviceTarget' id="service2">
                         <div className='backServiceTarget' id="backServiceTarget2"></div>
                         <img src="../servicios/rigidez-arterial.jpg" alt="servicios rigidez arterial bogotá colombia doctor robledo kaiser "/>
                         <h1>RIGIDEZ ARTERIAL</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget3' , "#service3")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget3', "#service3")}  to="/servicios/cardiologia" className='serviceTarget' id="service3">
+                    <Link to="/servicios/cardiologia" className='serviceTarget' id="service3">
                         <div className='backServiceTarget' id="backServiceTarget3"></div>
                         <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia bogotá colombia doctor robledo kaiser "/>
                         <h1>CARDIOLOGÍA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget4' , "#service4")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget4', "#service4")}  to="/servicios/cardiooncologia" className='serviceTarget' id="service4">
+                    <Link to="/servicios/cardiooncologia" className='serviceTarget' id="service4">
                         <div className='backServiceTarget' id="backServiceTarget4"></div>   
                         <img src="../servicios/cardioncologia.jpg" alt="servicios cardio bogotá colombia oncologia doctor robledo kaiser "/>
                         <h1>CARDIO ONCOLOGÍA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget5' , "#service5")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget5', "#service5")}  to="/servicios/electrocardiograma"  className='serviceTarget' id="service5">
+                    <Link to="/servicios/electrocardiograma"  className='serviceTarget' id="service5">
                         <div className='backServiceTarget' id="backServiceTarget5"></div>
                         <img src="../servicios/electrocardiograma.jpg" alt="servicios bogotá colombia electrocardiograma doctor robledo kaiser "/>
                         <h1>ELECTROCARDIOGRAMA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget6' , "#service6")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget6', "#service6")}  to="/servicios/ecocardiograma"  className='serviceTarget' id="service6">
+                    <Link to="/servicios/ecocardiograma"  className='serviceTarget' id="service6">
                         <div className='backServiceTarget' id="backServiceTarget6"></div>
                         <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio  oncologia bogotá colombia doctor robledo kaiser "/>
                         <h1>ECOCARDIOGRAMA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget7' , "#service7")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget7', "#service7")}  to="/servicios/rehabilitacion-cardiaca" className='serviceTarget' id="service7">
+                    <Link to="/servicios/rehabilitacion-cardiaca" className='serviceTarget' id="service7">
                         <div className='backServiceTarget' id="backServiceTarget7"></div>
                         <img src="../servicios/rehabilitacion-cardiaca.jpg" alt="servicios ecocardriograma bogotá colombia  doctor robledo kaiser "/>
                         <h1>REHABILITACIÓN CARDIACA</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget8' , "#service8")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget8', "#service8")}  to="/servicios/prueba-de-esfuerzo" className='serviceTarget' id="service8">
+                    <Link to="/servicios/prueba-de-esfuerzo" className='serviceTarget' id="service8">
                         <div className='backServiceTarget' id="backServiceTarget8"></div>
                         <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios prueba de esfuerzo bogotá colombia doctor robledo kaiser "/>
                         <h1>PRUEBA DE ESFUERZO</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget9' , "#service9")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget9', "#service9")}  to="/servicios/test-de-holter"  className='serviceTarget' id="service9">
+                    <Link to="/servicios/test-de-holter"  className='serviceTarget' id="service9">
                         <div className='backServiceTarget' id="backServiceTarget9"></div>
                         <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios test de holter bogotá colombia doctor robledo kaiser "/>
                         <h1>TEST DE HOLTER</h1>
                     </Link>
-                    <Link onMouseEnter={()=>{onMouseEnterTarget('#backServiceTarget10' , "#service10")}} onMouseLeave={()=>onMouseLeaveTarget('#backServiceTarget10', "#service10")}  to="/servicios/monitoreo-de-presion-arterial"  className='serviceTarget' id="service10">
+                    <Link to="/servicios/monitoreo-de-presion-arterial"  className='serviceTarget' id="service10">
                         <div className='backServiceTarget' id="backServiceTarget10"></div>
                         <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios monitoreo ambulatorio bogotá colombia  doctor robledo kaiser "/>
                         <h1>MONITOREO DE PRESIÓN ARTERIAL </h1>

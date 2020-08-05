@@ -13,6 +13,8 @@ import TextField from '@material-ui/core/TextField';
 //antd
 import { Calendar ,TimePicker, message } from 'antd';
 
+import moment from 'moment'
+
 //axios
 import axios from 'axios'
 
@@ -65,48 +67,15 @@ const Citas = () =>{
       }));
 
     const { register, handleSubmit, watch, errors } = useForm();
-
-    function  CalculateDate(time){
-        var a = new Date((time * 1000));
-        var year = a.getFullYear();
-        var month = a.getMonth()+1;
-        var date = a.getDate();
-        if (month < 10) {
-          month = '0' + month
-        }
-        if(date <10){
-          date = '0' + date
-        }
-        time = date + '/' + month + '/' + year; 
-        return time
-      }
-    function  CalculateTime(time){
-        var a = new Date((time * 1000));
-        var hour = a.getHours();
-        var min = a.getMinutes();
-        var sec = a.getSeconds();
-        if(hour <10){
-          hour = '0' + hour
-        }
-        if(min <10){
-          min = '0' + min
-        }
-        if(sec <10){
-          sec = '0' + sec
-        }
-        time =  hour + ':' + min + ':' + sec ;
-        return time
-      }
-
-
     const classes = useStyles();
 
     const onChangeCalendar = (value) => {
+        
         setDate(value.format("YYYY-MM-DD"))
     }
 
     const onchangeTime = (value) => {
-        setTime(value.format("HH:mm:ss.SSS"))
+        setTime(value.format("HH:mm:ss"))
     }
 
     const CalculateTime2 = ()=>{
@@ -134,8 +103,21 @@ const Citas = () =>{
         data.fecha = date
         data.hora = time
 
+        
+
+        var url = "https://gestion.drgabrielrobledo.com"
+        if (data.tipo_de_consulta === "Examen") {
+            url = `${url}/examenes-diagnosticos`
+        }else if (data.tipo_de_consulta === "Consulta de cardiología") {
+            url = `${url}/citas`
+        }
+
+        if (data.fecha === "") {
+            data.fecha = moment().format("YYYY-MM-DD")
+        }
+
         axios.post(
-            "https://gestion.drgabrielrobledo.com/citas",
+            url,
             data,
             {headers: {"Accept": "application/json"}}
         ).then(res=>{
