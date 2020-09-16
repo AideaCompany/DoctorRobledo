@@ -14,7 +14,7 @@ const QuienSoy = () =>{
            <div className='mainContainerAbout'>
              <div className='firstAbout'>
                 <div className="firstBack">
-                  <img src="https://gestion.drgabrielrobledo.com/uploads/doctor-1149149_1920_33bbc39896.jpeg" alt="doctor gabriel robledo"/>
+                  <img src="https://gestion.drgabrielrobledo.com/uploads/whoiam_9318cc4029.png" alt="doctor gabriel robledo"/>
                 </div>
                 <div className="back2About"></div>
                 <div className="back3About"></div>

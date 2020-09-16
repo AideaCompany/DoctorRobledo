@@ -21,8 +21,12 @@ const BlogPostsTemplate = ({data}) => {
             <div className='mainContainerTemplate'>
                 <h1 className='titleTemplate'>{data.strapiBlogs.titulo}</h1>
                 <div className='containerTextBlog'>
-                    <img className='mainImgTemplate' src={`${URL}${data.strapiBlogs.imagen[0].url}`} alt={data.strapiBlogs.titulo}/>
+                    <img className='mainImgTemplate' src={`${URL}${data.strapiBlogs.image[0].url}`} alt={data.strapiBlogs.titulo}/>
                     <div className='contentTemplate' dangerouslySetInnerHTML={{__html:getMarkdownText()}}/>
+                    <div className="creditos">
+                        <p>Escrito por: Dr Gabriel Robledo Kaiser</p>
+                        <p>Fecha : {data.strapiBlogs.createdAt.split('T')[0]}</p>
+                    </div>
                 </div>
             </div>
         </Layout>
@@ -35,11 +39,11 @@ export const query = graphql`
   query ArticleTemplate($id: String!) {
     strapiBlogs(id: {eq: $id}) {
         titulo
-        created_at
+        createdAt
         contenido
         activo
-        imagen {
-        url
+        image {
+            url
         }
     }
   }`

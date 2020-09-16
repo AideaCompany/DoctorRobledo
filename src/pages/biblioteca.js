@@ -28,7 +28,7 @@ const Biblioteca = ({data}) =>{
                     description: dataQuery[k].node.resumen,
                     createAt: dataQuery[k].node.created_at,
                     id: dataQuery[k].node.id,
-                    img : `${URL}${dataQuery[k].node.imagen[0].url}`
+                    img : `${URL}${dataQuery[k].node.image[0].url}`
                 }) 
             }else{
                 if (dataQuery[k].node.activo) {
@@ -37,19 +37,13 @@ const Biblioteca = ({data}) =>{
                         description: dataQuery[k].node.resumen,
                         createAt: dataQuery[k].node.created_at,
                         id: dataQuery[k].node.id,
-                        img : `${URL}${dataQuery[k].node.imagen[0].url}`
+                        img : `${URL}${dataQuery[k].node.image[0].url}`
     
                     }) 
                 }  
             }
            
         }
-
-
-    
-
-
-    
     return(
         
         <>
@@ -65,7 +59,7 @@ const Biblioteca = ({data}) =>{
                         <p>Encuentra diversas noticias y articulos de interés</p>
                         <div className='backBiblioteca'></div>
                         <div className='animationBiblioteca'>
-                            <img src="https://gestion.drgabrielrobledo.com/uploads/biblioteca_9826e64e0f.jpeg" alt="biblioteca articulos doctor robledo kaiser "/>
+                            <img src="https://gestion.drgabrielrobledo.com/uploads/biblioteca_4a92ac9d01.png" alt="biblioteca articulos doctor robledo kaiser "/>
                         </div>
                     </div>
                     </FullpageSection>
@@ -121,11 +115,11 @@ query {
                 activo
                 contenido
                 id
-                created_at
+                createdAt
                 strapiId
                 titulo
                 resumen
-                imagen {
+                image {
                     url
                 }
             }

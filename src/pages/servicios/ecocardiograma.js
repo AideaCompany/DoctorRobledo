@@ -15,11 +15,19 @@ const Ecocardiograma = () =>{
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
-        t1.to(".backServicesPages", 0.7 , {width: "80vw", ease:  Power4.easeInOut},  "cross")
-          .to(".backServicesPages > img", 0.5 ,  {opacity: 1})
-          .to(".textServices", 0.5, { opacity: 1})
-          .to(".firstServicesPages > a", 0.5 , {left : "10%",  opacity: 1, ease: Power4.easeInOut} ,"cross")
-          .play()
+        if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
+            t1.to(".backServicesPages", 0.7 , {width: "85vw", ease:  Power4.easeInOut},  "cross")
+            .to(".backServicesPages > img", 0.5 ,  {opacity: 1})
+            .to(".textServices", 0.5, { opacity: 1})
+            .to(".firstServicesPages > a", 0.5 , {left : "10%",  opacity: 1, ease: Power4.easeInOut} ,"cross")
+            .play()
+        } else {
+            t1.to(".backServicesPages", 0.7 , {width: "80vw", ease:  Power4.easeInOut},  "cross")
+            .to(".backServicesPages > img", 0.5 ,  {opacity: 1})
+            .to(".textServices", 0.5, { opacity: 1})
+            .to(".firstServicesPages > a", 0.5 , {left : "10%",  opacity: 1, ease: Power4.easeInOut} ,"cross")
+            .play()
+        }
     }, [])
     return(
         <>

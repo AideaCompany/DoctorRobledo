@@ -9,48 +9,29 @@ gsap.registerPlugin(CSSPlugin)
 
 const Servicios = () =>{
 
-    const [targetIn, setTargetIn] = useState(false)
-    const [targetOut, setTargetOut] = useState(false)
-
     const t1 = new TimelineMax({paused: true});
-    const t2 = new TimelineMax({paused: true});
-    const t3 = new TimelineMax({paused: true});
 
     useEffect(() => {
-        t1.to(".backServices", 0.5 , {width: "80vw", ease:  Power4.easeInOut})
-          .to(".firstServices > h1", 0.5 ,  {opacity: 1})
-          .to(["#service1","#service2", "#service3", "#service4", "#service5"], 0.7, {top:"20%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
-          .to(["#service6","#service7", "#service8", "#service9", "#service10"], 0.7, {top:"60%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
-          .play()
+        
+        if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
+            t1.to(".backServices", 0.5 , {width: "80vw", ease:  Power4.easeInOut})
+            .to(".firstServices > h1", 0.5 ,  {opacity: 1})
+            .to(["#service1","#service2"], 0.7, {top:"17%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .to(["#service3","#service4"], 0.7, {top:"34%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .to(["#service5","#service6"], 0.7, {top:"51%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .to(["#service7","#service8"], 0.7, {top:"68%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .to(["#service9","#service10"], 0.7, {top:"85%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .play()
+        }else{
+            t1.to(".backServices", 0.5 , {width: "80vw", ease:  Power4.easeInOut})
+            .to(".firstServices > h1", 0.5 ,  {opacity: 1})
+            .to(["#service1","#service2", "#service3", "#service4", "#service5"], 0.7, {top:"20%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .to(["#service6","#service7", "#service8", "#service9", "#service10"], 0.7, {top:"60%" , opacity: "1" , ease: Power4.easeInOut}, "cross")
+            .play()
+        }
+        
     }, [])
 
-    const onMouseEnterTarget = (id, id2) =>{
-        t2.to(id, 0.3 , {opacity: 0}, "cross")
-          .to(`${id2} h1`, 0.3 , {opacity: 0}, "cross")
-          if (!targetIn) {
-              t2.play()
-              setTargetIn(true)
-          }else{
-              t2.restart()
-          }
-          t3.eventCallback("onComplete", ()=>{
-            t3.clear()
-          })
-        //   
-    }
-    const onMouseLeaveTarget = (id, id2) =>{
-        t3.to(id, 0.3 , {opacity: 1}, "cross")
-          .to(`${id2} h1`, 0.3 , {opacity: 1}, "cross")
-          if (!targetOut) {
-              t3.play()
-              setTargetOut(true)
-          }else{
-              t3.restart()
-          }
-          t2.eventCallback("onComplete", ()=>{
-            t2.clear()
-          })
-    }
 
     return(
     <>

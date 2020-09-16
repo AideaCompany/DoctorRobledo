@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
         margin: theme.spacing(1),
-        width: '40vw',
+        width: widthForm(),
         color: "#fff"
       },
       "& .MuiFormHelperText-root": {
@@ -52,6 +52,15 @@ const useStyles = makeStyles((theme) => ({
       },
       error: {}
   }));
+
+
+  const widthForm = () => {
+      if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
+          return '80vw'
+      }else{
+          return '40vw'
+      }
+  }
 
 const Contacto = () =>{
 
@@ -177,8 +186,8 @@ const Contacto = () =>{
                     <h1>Contactame</h1>
                     <div className='dataContact'>
                         <ul>
-                            <li>Teléfonos:  #########</li>
-                            <li>Email : ##########</li>
+                            <li>Teléfonos: 320 9488078 - 6161808 </li>
+                            <li>Email : <a href="mailto:Grobledoconsultas@gmail.com">Grobledoconsultas@gmail.com</a></li>
                         </ul>
 
                         <iframe className='map' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15906.331500570062!2d-74.0568116!3d4.668211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4eedb045e905b2a0!2sCentro%20Cardiol%C3%B3gico%20de%20Bogot%C3%A1%20ltda!5e0!3m2!1ses!2sco!4v1587397182486!5m2!1ses!2sco" frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>

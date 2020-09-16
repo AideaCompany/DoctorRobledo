@@ -33,22 +33,16 @@ const PreguntasFrecuentas = () =>{
                         ducimus quam atque sapiente error expedita eius, nesciunt id 
                         exercitationem eaque? Et quibusdam molestiae accusamus!</p>
                         <div className='animationQuestion'>
-                            <Lottie
-                                options={defaultOptions}
-                                width='90vw'
-                                height='90vh'
-                                />
+                            <img src="https://gestion.drgabrielrobledo.com/uploads/preguntas_frecuentes_861c5421a1.png" alt="preguntas frecuentes dr gabriel robledo"/>
                         </div>
                 </div>
                 <div className='secondQuestion'>
                     <div id='questionLeft'  className='questionContainer'>
                         <div>
-                            <h1>¿Cómo se pueden prevenir las enfermedades del <strong>corazón?</strong></h1>
+                            <h2>¿Cómo se pueden prevenir las enfermedades del <strong>corazón?</strong></h2>
                         </div>
                         <div>
-                            <p>Los cambios en el estilo de vida pueden prevenir o tratar la enfermedad cardiovascular. 
-                                En algunas personas estos cambios pueden ser el único tratamiento necesario, otros 
-                                requieren medicamentos. Siempre debe ser valorado por su  médico.</p>
+                            <p>Los cambios en el estilo de vida, adoptando <strong>hábitos cardiosaludables</strong>, pueden prevenir o tratar la enfermedad cardiovascular. En algunas personas estos cambios pueden ser el único tratamiento necesario, otros requieren medicamentos. Siempre debe ser valorado por su médico en caso de experimentar algún síntoma cardiovascular.</p>
                         </div>
                     </div>
                     <div id='questionRigth'  className='questionContainer'>
@@ -64,23 +58,23 @@ const PreguntasFrecuentas = () =>{
                             </ul> 
                         </div>
                         <div>
-                            <h1>¿Cuáles son los signos de alerta del <strong>ataque cardíaco?</strong> </h1>
+                            <h2>¿Cuáles son los signos de alerta del <strong>ataque cardíaco?</strong> </h2>
                         </div>
                     </div>
                     <div id='questionRigth'  className='questionContainer'>
                         <div>
-                            <h1>¿Si soy mujer tengo más riesgo de sufrir un <strong>infarto</strong>?</h1>
+                            <h2>¿Qué rutinas diarias puedo adoptar para mantener un corazón sano?</h2>
                         </div>
                         <div>
                             <div>
-                                <p>
-                                    Las mujeres tienen mayor riesgo de infartos que los hombres al llegar a la menopausia. 
-                                    La enfermedad coronaria mata más mujeres que cualquier cáncer u otras enfermedades.
-                                    <br/>
-                                    Si usted tiene colesterol elevado, antecedentes familiares de infartos en la familia, hipertensión arterial, 
-                                    es sedentaria, fuma, y tiene sobrepeso o es obesa…y llegó a la menopausia…su riesgo es elevado de tener un 
-                                    evento cardiovascular.
-                                </p>
+                                <ul>
+                                    <li>Alimentación equilibrada, factor escencial</li>
+                                    <li>Control de nivel de <strong>glucosa en la sangre</strong></li>
+                                    <li>Practicar deporte</li>
+                                    <li>Controlar la depresión arterial</li>
+                                    <li>Evitar el consumo de tabaco</li>
+                                    <li>Mantener los niveles de <strong>colesterol</strong> dentro de los niveles aconsejados.</li> 
+                                </ul> 
                             </div>
                         </div>
                     </div>
