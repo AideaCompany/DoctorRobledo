@@ -54,19 +54,25 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   const marginForm = () =>{
-    if (window.matchMedia("(max-width: 896px) and (orientation : landscape)").matches) {
-        return 0
-    }else{
-        return 1
+    if (typeof window !== 'undefined') {
+        if (window.matchMedia("(max-width: 896px) and (orientation : landscape)").matches) {
+            return 0
+        }else{
+            return 1
+        }
     }
+    
   }
 
   const widthForm = () => {
-      if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches || window.matchMedia("(max-width: 375px) and (orientation : portrait)").matches ) {
-          return '80vw'
-      }else{
-          return '40vw'
+      if (typeof window !== 'undefined') {
+        if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches || window.matchMedia("(max-width: 375px) and (orientation : portrait)").matches ) {
+            return '80vw'
+        }else{
+            return '40vw'
+        }
       }
+      
   }
 
 const Contacto = () =>{

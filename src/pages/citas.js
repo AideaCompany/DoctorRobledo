@@ -67,11 +67,14 @@ const Citas = () =>{
       }));
 
     const widthForm = () =>{
-        if (window.matchMedia("(max-width: 414px) and (orientation : portrait)").matches) {
-            return '80vw'
-        }else{
-            return '40vw'
+        if (typeof window !== 'undefined') {
+            if (window.matchMedia("(max-width: 414px) and (orientation : portrait)").matches) {
+                return '80vw'
+            }else{
+                return '40vw'
+            }
         }
+        
     }
 
     const { register, handleSubmit, watch, errors } = useForm();
