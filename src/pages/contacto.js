@@ -15,7 +15,7 @@ import {message} from 'antd'
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
-        margin: theme.spacing(1),
+        margin: theme.spacing(marginForm()),
         width: widthForm(),
         color: "#fff"
       },
@@ -53,9 +53,16 @@ const useStyles = makeStyles((theme) => ({
       error: {}
   }));
 
+  const marginForm = () =>{
+    if (window.matchMedia("(max-width: 896px) and (orientation : landscape)").matches) {
+        return 0
+    }else{
+        return 1
+    }
+  }
 
   const widthForm = () => {
-      if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
+      if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches || window.matchMedia("(max-width: 375px) and (orientation : portrait)").matches ) {
           return '80vw'
       }else{
           return '40vw'

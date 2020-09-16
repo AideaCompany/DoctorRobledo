@@ -13,6 +13,7 @@ import {List , Card} from 'antd'
 const {Meta} = Card
 
 
+
 const Biblioteca = ({data}) =>{
     const dataQuery = data.allStrapiBlogs.edges
 
@@ -43,6 +44,14 @@ const Biblioteca = ({data}) =>{
                 }  
             }
            
+        }
+
+        const sizePage = () =>{
+            if (window.matchMedia("(max-width: 896px) and (orientation : landscape)").matches) {
+                return 2
+            }else{
+                return 3
+            }
         }
     return(
         
@@ -78,7 +87,7 @@ const Biblioteca = ({data}) =>{
                         <div className='listBlog'>
                             <List   itemLayout="vertical"
                                     size="small"
-                                    pagination={{pageSize: 3 , size: "small", position: "top"}}
+                                    pagination={{pageSize: sizePage() , size: "small", position: "top"}}
                                     dataSource={dataList}
                                     renderItem={item=> (
                                         <List.Item width={'100%'} key={item.id}>

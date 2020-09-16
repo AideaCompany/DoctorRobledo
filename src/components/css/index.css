@@ -1741,6 +1741,99 @@ header .navigation ul li {
     }
 }
 
+@media screen and (max-width: 896px) and (orientation : landscape){
+    .mainHeader h1{
+        font-size: 0.7em !important;
+    }
+    .mainHeader h2{
+        font-size: 0.5em !important;
+    }
+
+    /* index */
+
+    .serviceIndex {
+        width: 30vw;
+        top: 90%;
+    }
+
+    .serviceIndex h1 {
+        font-size: 1em;
+    }
+
+    .iconServiceIndex {
+        height: 30px;
+        width: 30px;
+        object-fit: cover;
+    }
+
+    /* about */
+
+    .firstAbout h1{
+        font-size: 3em !important;
+    }
+
+    /* service */
+    .serviceTarget{
+        height: 15vw;
+    }
+    .serviceTarget h1{
+        font-size: 0.7em !important ;
+    }
+
+    /* service page */
+    .textServices p{
+        font-size: 0.7em;
+    }
+
+    /* biblioteca */
+
+    .firstBiblioteca h1{
+        font-size: 3em !important;
+        top: 45%;
+    }
+
+    .mainBlog img{
+        height: 30vh !important;
+    }
+
+    .ant-card-meta-description{
+        font-size: 0.7em !important;
+    }
+    .ant-list-item-meta h4{
+        margin-bottom: 0 !important;
+        /* font-size: 1em !important; */
+    }
+    .contentList img{
+        display: none;
+    }
+    .contentList p{
+        font-size: 0.7em;
+    }
+
+    .listBlog{
+        padding-left: 0;
+    }
+
+    /* contacto */
+    .firstContact{
+        overflow: inherit !important;
+    }
+    .firstContact h1{
+        left: 10%;
+        font-size: 2em;
+    }
+
+    .firstContact .dataContact{
+        left: 10%;
+
+    }
+
+    .dataContact li{
+        font-size: 1em !important;
+    }
+}
+
+
 @media screen and (max-width: 768px) and (orientation : portrait) {
 
     .verticalFooter,
@@ -1929,7 +2022,156 @@ header .navigation ul li {
         margin-top: 10px;
         font-size: 0.7em;
     }
+    /* preguntas */
+    .firstQuestion p{
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+    /* Servicios */
+    .firstServices>h1 {
+        font-size: 4em;
 
+    }
 
+    .serviceTarget {
+        width: 40vw;
+        height: 25vw;
+    }
+
+    .serviceTarget h1{
+        font-size: 1em !important;
+    }
+
+    /* service pages */
+    .textServices h1 {
+        font-size: 1.5em;
+    }
+
+    .textServices p {
+        font-size: 1em;
+        padding: 0.5em;
+        margin-bottom: 0;
+    }
+
+    .textServices .buttonCita{
+        width: 80vw !important;
+    }
+
+    /* biblioteca */
+
+    .secondBiblioteca .mainBlog {
+        padding-top: 5vh;
+        height: 40vh;
+        width: 95%;
+        padding-left: 7vh;
+        margin-right: 0;
+    }
+    .backBiblioteca{
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+    .firstBiblioteca h1,p{
+        left: 50% !important;
+    }
+    .animationBiblioteca{
+        left: 50% !important;
+    }
+    .animationBiblioteca img {
+        width: 90vw;
+    }
+
+    .imgCard {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .ant-card-meta-title h1{
+        font-size: 1em;
+    }
+    .ant-card-meta-description{
+        font-size: 0.6em;
+    }
+
+    .contentList img{
+        display: none;
+    }
+
+    .contentList p{
+        font-size: 0.7em;
+    }
+
+    /* contacto */
+
+    .firstContact{
+        overflow: inherit !important;
+    }
+    .firstContact h1 {
+        top: 10vh;
+        font-size: 6vw;
+    }
+
+    .firstContact .dataContact {
+        top: 15vh ;
+    }
+
+    /* citas */
+    .firstCitas{
+        height: 170vh;
+        overflow: inherit !important;
+    }
+
+    .calendarDate {
+        width: 90vw;
+        position: absolute;
+        left: 50%;
+        top: 80vh;
+        transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.7) !important;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .chooseDay {
+        position: absolute;
+        left: 50%;
+        top: 15vh;
+        width: 100%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+
+    .submitButtonCita {
+        width: 200px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 2%;
+        top: 255%;
+        transform: translate(0%, -50%);
+        -webkit-transform: translate(0%, -50%);
+        border: 2px solid var(--color-mainBlue);
+        text-decoration: none;
+        color: var(--color-mainBlue);
     
+    }
+    
+}
+
+@media screen  and (max-width: 375px) and (orientation : portrait){
+
+    .mainHeader{
+        width: 60% !important;
+        margin-right: 20%;
+        margin-top: 1vh !important;
+    }
+
+    .navigation{
+        width: 0 !important;
+    }
 }

@@ -29,7 +29,7 @@ const Citas = () =>{
         root: {
           '& .MuiTextField-root': {
             margin: theme.spacing(1),
-            width: '30vw',
+            width: widthForm(),
             color: "#fff"
           },
           "& .MuiFormHelperText-root": {
@@ -65,6 +65,14 @@ const Citas = () =>{
           },
           error: {}
       }));
+
+    const widthForm = () =>{
+        if (window.matchMedia("(max-width: 414px) and (orientation : portrait)").matches) {
+            return '80vw'
+        }else{
+            return '40vw'
+        }
+    }
 
     const { register, handleSubmit, watch, errors } = useForm();
     const classes = useStyles();

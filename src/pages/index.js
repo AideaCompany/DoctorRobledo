@@ -189,7 +189,7 @@ export default () =>{
             </div>
           </div>
         </FullpageSection>
-        <FullpageSection>
+        <FullpageSection> 
           <div className='itemSlider' >
             <div className='one textSlider2 ' id='leftSlider'>
               <h1>Un poco sobre mi</h1>
