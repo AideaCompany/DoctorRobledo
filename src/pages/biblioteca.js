@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import { graphql , Link } from "gatsby"
 
 //FullPage
-import Fullpage, { FullPageSections, FullpageSection, FullpageNavigation  } from '@ap.cx/react-fullpage'
+import Fullpage, { FullPageSections, FullpageSection  } from '@ap.cx/react-fullpage'
 
 //antd
 import {List , Card} from 'antd'

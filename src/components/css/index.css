@@ -17,7 +17,9 @@
     width: 50vw !important;
 }
 .ant-drawer-body {
+    background-color: rgba(1, 64, 95, 1) ;
     padding: 0;
+    position: relative;
 
 }
 
@@ -29,7 +31,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(1, 64, 95, 1);
-    position: relative;
 }
 
 .inHam .manuHamItems {
@@ -1304,6 +1305,7 @@ header .navigation ul li {
 
 }
 
+
 @media screen and (max-width: 1024px) and (orientation : portrait) {
 
     /* header */
@@ -1318,15 +1320,19 @@ header .navigation ul li {
 
     header .mainHeader {
         margin-left: 7vw;
+        width: 25%;
     }
 
     header .mainHeader h1 {
         margin-top: 1vh;
         font-size: 1em;
         font-weight: 900 !important;
-        color: #fff !important
+        /* color: #fff !important */
     }
 
+    header .navigation{
+        width: 75%;
+    }
     header .navigation ul {
         height: 5vh;
     }
@@ -1669,6 +1675,7 @@ header .navigation ul li {
 
 }
 
+
 @media screen and (max-width: 1024px) and (orientation : landscape) {
 
     header .mainHeader h1 {
@@ -1740,6 +1747,7 @@ header .navigation ul li {
         font-size: 1.3em;
     }
 }
+
 
 @media screen and (max-width: 896px) and (orientation : landscape){
     .mainHeader h1{
@@ -1832,13 +1840,44 @@ header .navigation ul li {
         font-size: 1em !important;
     }
 }
+@media screen and (max-width: 896px) and (orientation : portrait){
+    .mainHeader{
+        width: 30% !important;
+        margin-top: 0vh !important;
+        
+    }
+    header{
+        position: relative;
+    }
+    
+    header .mainHeader h1{
+        margin-left: 0vw ;
+        font-size: 0.7em
+    }
+    header .mainHeader h2{
+        font-size: 0.5em
+    }
 
+    .navigation{
+        display: none !important;
+        width: 0 !important;
+    }
+    header .iconHam {
+        font-size: 2em;
+        display: inherit;
+        margin: 2vh;
+        color: #fff;
+        position: absolute;
+        left: 90%;
+    }
+}
 
 @media screen and (max-width: 768px) and (orientation : portrait) {
 
     .verticalFooter,
     .cuadrado {
         display: none;
+        width: 0;
     }
 
     header {
@@ -1847,6 +1886,7 @@ header .navigation ul li {
 
     header .navigation ul {
         display: none;
+        width: 0;
     }
 
     header .mainHeader {
@@ -1968,6 +2008,9 @@ header .navigation ul li {
         font-weight: 900 !important;
         color: #fff !important
     }
+    header .navigation{
+        width: 0%;
+    }
     .ant-drawer-content-wrapper{
         width: 60vw !important;
     }
@@ -2028,9 +2071,46 @@ header .navigation ul li {
         -webkit-transform: translate(-50%, -50%);
     }
     /* Servicios */
-    .firstServices>h1 {
-        font-size: 4em;
+       /* question */
+       .secondQuestion .questionContainer {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+    }
 
+    .questionContainer>div {
+        width: 50%;
+        align-items: center;
+        height: auto;
+        position: relative;
+        border-top: 1px solid #fff;
+    }
+
+    .questionContainer>div>* {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+
+    .questionContainer>div h2 {
+        text-align: center;
+        font-size: 4vw;
+        width: 100%;
+    }
+
+    .questionContainer>div p,
+    .questionContainer>div li {
+        padding: 0 0em 0 0em;
+        font-size: 2.5vw;
+    }
+
+    
+
+    .questionContainer ul, .questionContainer p{
+        width: 100%;
+        padding: 3vh;
     }
 
     .serviceTarget {
@@ -2168,10 +2248,70 @@ header .navigation ul li {
     .mainHeader{
         width: 60% !important;
         margin-right: 20%;
-        margin-top: 1vh !important;
+        margin-top: 0.3vh !important;
     }
 
     .navigation{
         width: 0 !important;
     }
+
+    /* about */
+    .firstAbout h1{
+        font-size: 2em;
+    }
+    .back2About{
+        left: 95%;
+    }
+    .textAbout p{
+        font-size: 1em;
+    }
+
+    /* question */
+    .secondQuestion .questionContainer {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+    }
+
+    .questionContainer>div {
+        width: 50%;
+        align-items: center;
+        height: auto;
+        position: relative;
+        border-top: 1px solid #fff;
+    }
+
+    .questionContainer>div>* {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+    }
+
+    .questionContainer>div h2 {
+        text-align: center;
+        font-size: 4vw;
+        width: 100%;
+    }
+
+    .questionContainer>div p,
+    .questionContainer>div li {
+        padding: 0 0em 0 0em;
+        font-size: 2.5vw;
+    }
+
+    
+
+    .questionContainer ul, .questionContainer p{
+        width: 100%;
+        padding: 3vh;
+    }
+
+    /* page service */
+    .textServices p {
+        font-size: 3vw;
+    }
+    
+
 }

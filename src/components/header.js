@@ -3,7 +3,7 @@ import {Link} from 'gatsby'
 
 //fontawesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faFacebookF, faInstagram , faYoutube , faLinkedinIn,} from '@fortawesome/free-brands-svg-icons'
+import {faFacebookF, faInstagram /* , faYoutube , faLinkedinIn, */} from '@fortawesome/free-brands-svg-icons'
 import {faCalendarAlt, faBars} from '@fortawesome/free-solid-svg-icons'
 //Antd
 import {Drawer} from 'antd'
@@ -32,7 +32,7 @@ export default function Header () {
             <FontAwesomeIcon onClick={()=>{setOpenMenu(true)}} className='iconHam' icon={faBars}/>
         </header>
         <Drawer visible={openMenu} onClose={()=>setOpenMenu(false)}>
-            <div className='inHam'>
+            <div  className='inHam'>
                 <ul className='manuHamItems'>
                     <li><Link to='/quien-soy'>Quién Soy</Link></li>
                     <li><Link to='/preguntas-frecuentes'>Preguntas Frecuentes</Link></li>

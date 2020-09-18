@@ -3,23 +3,10 @@ import React from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-//Lottie
-import Lottie from 'react-lottie'
-import animationSlider from '../components/animations/indexSlider/questions.json'
 
 
 const PreguntasFrecuentas = () =>{
 
-
-    const defaultOptions = {
-        loop: false,
-        autoplay: true, 
-        segments: true,
-        animationData: animationSlider,
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
-        },
-    };
     return(
         <>
         <SEO title="Preguntas Frecuentas" />
@@ -66,7 +53,6 @@ const PreguntasFrecuentas = () =>{
                             <h2>¿Qué rutinas diarias puedo adoptar para mantener un corazón sano?</h2>
                         </div>
                         <div>
-                            <div>
                                 <ul>
                                     <li>Alimentación equilibrada, factor escencial</li>
                                     <li>Control de nivel de <strong>glucosa en la sangre</strong></li>
@@ -75,7 +61,6 @@ const PreguntasFrecuentas = () =>{
                                     <li>Evitar el consumo de tabaco</li>
                                     <li>Mantener los niveles de <strong>colesterol</strong> dentro de los niveles aconsejados.</li> 
                                 </ul> 
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -17,8 +17,6 @@ gsap.registerPlugin(CSSPlugin)
 
 export default () =>{
 
-  const [slideState, setSlideState] = useState("01")
-  const [idSlider, setIdSlider] = useState("numLeft")
   const [displayPreloader, setDisplayPreloader] = useState("inherit")
   const [initStyles, setInitStyles] = useState({
     height : "100vh",
@@ -65,7 +63,6 @@ export default () =>{
       loop: false,
       autoplay: false,
     })
-    console.log(localStorage.getItem('preloader'))
     if (localStorage.getItem('preloader')) {
       setDisplayPreloader("none")
       setInitStyles({
@@ -103,14 +100,10 @@ export default () =>{
 
   const onShowSlider = (e) =>{
       if(e.number === 0){
-          setIdSlider("numLeft")
-          setSlideState("01");
           t1.to(textSlider1, 0.5 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")      
             .play()
       }else if(e.number === 1){
         if (!play2) {
-            setIdSlider("numRight")
-            setSlideState("02");
             t1.to(".backSlider2" , 1 , {left: "100vw" , ease: Power4.easeInOut})
               .to(textSlider2, 0.3 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")            
               .play();
@@ -119,8 +112,6 @@ export default () =>{
       }else if(e.number === 2){
         setClassArrow('inherit')
         if (!play3) {
-            setIdSlider("numLeft")
-            setSlideState("03");
             t1.to(".cortina1" , 1 , {left: "-50%" , ease: Power4.easeInOut} , "cross")
               .to(".cortina2" , 1 , {left: "100%", ease: Power4.easeInOut}, "cross")
               .to(".img3" , 0.5 , {opacity : 1 , ease : Power4.easeInOut }, 'shadow')
@@ -132,8 +123,6 @@ export default () =>{
       }else if(e.number === 3){
         setClassArrow('none')
         if (!play4) {
-          setIdSlider("numRight")
-          setSlideState("04");
           t1.to(".backSlider4" , 0.5, {left: "-100vw" , ease : Power4.easeInOut})
             .to(textSlider4, 0.5 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .play();

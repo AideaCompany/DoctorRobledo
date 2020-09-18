@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import locale from 'antd/es/locale/es_ES'
@@ -77,7 +77,7 @@ const Citas = () =>{
         
     }
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const classes = useStyles();
 
     const onChangeCalendar = (value) => {

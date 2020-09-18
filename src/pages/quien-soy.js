@@ -1,7 +1,7 @@
-import React, {useState, useEffect , useRef} from 'react';
+import React from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { graphql , Link } from "gatsby"
+
 
 
 const QuienSoy = () =>{
