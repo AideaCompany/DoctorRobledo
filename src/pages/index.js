@@ -123,10 +123,18 @@ export default () =>{
       }else if(e.number === 3){
         setClassArrow('none')
         if (!play4) {
-          t1.to(".backSlider4" , 0.5, {left: "-100vw" , ease : Power4.easeInOut})
+          if (window.matchMedia("(max-width: 414px)").matches) {
+            t1.to(".backSlider4" , 0.5, {left: "-100vw" , ease : Power4.easeInOut})
+            .to(textSlider4, 0.5 , {top : "75%" , opacity: 1, ease: Power4.easeInOut}, "cross")
+            .play();
+            setPlay4(false) 
+          }else{
+            t1.to(".backSlider4" , 0.5, {left: "-100vw" , ease : Power4.easeInOut})
             .to(textSlider4, 0.5 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")
             .play();
-            setPlay4(false)  
+            setPlay4(false) 
+          }
+           
         }
                  
       }

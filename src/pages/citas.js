@@ -71,7 +71,7 @@ const Citas = () =>{
             if (window.matchMedia("(max-width: 414px) and (orientation : portrait)").matches) {
                 return '80vw'
             }else{
-                return '40vw'
+                return '30vw'
             }
         }
         
