@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Doctor Gabriel Robledo Kaiser`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Soy el Dr. Gabriel Robledo Kaiser nací el 27 de septiembre de 1950 en Bogotá. 
+    Cuento con más de 40 años de experiencia siendo un reconocido especialista en Cardiología y Cardio-Oncología.`,
     author: `Aidea S.A.S.`,
   },
   plugins: [
@@ -18,11 +19,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Doctor Gabriel Robledo Kaiser`,
+        name: `Doctor Gabriel Robledo Kaiser | Cardiología`,
         short_name: `Dr Robledo`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#014060`,
+        theme_color: `#01405f`,
         display: `minimal-ui`,
         icon: "src/images/icon.png"
       },
