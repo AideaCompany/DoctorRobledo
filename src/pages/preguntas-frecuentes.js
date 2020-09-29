@@ -2,6 +2,7 @@
 import React from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import {Link} from 'gatsby'
 
 
 
@@ -15,13 +16,17 @@ const PreguntasFrecuentas = () =>{
             <div className='mainContainerQuestion'>
                 <div className='firstQuestion'>
                     <h1>Preguntas Frecuentes</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                        Esse voluptatem, magnam libero tempore excepturi dignissimos 
-                        ducimus quam atque sapiente error expedita eius, nesciunt id 
-                        exercitationem eaque? Et quibusdam molestiae accusamus!</p>
-                        <div className='animationQuestion'>
-                            <img src="https://gestion.drgabrielrobledo.com/uploads/preguntas_frecuentes_861c5421a1.png" alt="preguntas frecuentes dr gabriel robledo"/>
-                        </div>
+                    <p>Estan son preguntas frecuentes que me hacen mis pacientes en las consultas.
+                        <br/>
+                       Si tienes alguna duda no dudes en consultarnos.
+                       <br/>
+                       <br/>
+                       <Link style={{color:"#fff"}} to='/contacto'>Contacto</Link>
+                    </p>
+                    
+                    <div className='animationQuestion'>
+                        <img src="https://gestion.drgabrielrobledo.com/uploads/preguntas_frecuentes_861c5421a1.png" alt="preguntas frecuentes dr gabriel robledo"/>
+                    </div>
                 </div>
                 <div className='secondQuestion'>
                     <div id='questionLeft'  className='questionContainer'>

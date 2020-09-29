@@ -104,10 +104,16 @@ export default () =>{
             .play()
       }else if(e.number === 1){
         if (!play2) {
+          if (window.matchMedia("(max-width: 414px)").matches) {
             t1.to(".backSlider2" , 1 , {left: "100vw" , ease: Power4.easeInOut})
-              .to(textSlider2, 0.3 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")            
-              .play();
-            setPlay2(true)
+            .to(textSlider2, 0.3 , {top : "30%" , opacity: 1, ease: Power4.easeInOut}, "cross")            
+            .play();
+          }else{
+            t1.to(".backSlider2" , 1 , {left: "100vw" , ease: Power4.easeInOut})
+            .to(textSlider2, 0.3 , {top : "50%" , opacity: 1, ease: Power4.easeInOut}, "cross")            
+            .play();
+          }
+          setPlay2(true)
         }
       }else if(e.number === 2){
         setClassArrow('inherit')

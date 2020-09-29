@@ -646,6 +646,10 @@ header .navigation ul li {
     width: 30vw;
     font-size: 1.5vw;
 }
+.firstQuestion a{
+    text-decoration: underline !important;
+
+}
 
 .firstQuestion .animationQuestion {
     position: absolute;
@@ -730,7 +734,7 @@ header .navigation ul li {
 .serviceTarget {
     background-color: #fff;
     width: 15vw;
-    height: 20vw;
+    height: 17vw;
     position: absolute;
     transform: translate(-50%, 0%);
     -webkit-transform: translate(-50%, 0%);
@@ -1378,7 +1382,7 @@ header .navigation ul li {
         left: 7%;
         top: 87vh;
         z-index: 10;
-    }
+    }x
 
     .itemSlider .one h1 {
         font-size: 5vw;
@@ -2193,20 +2197,34 @@ header .navigation ul li {
     }
 
     .textSlider2 {
-        left: -5% !important;
-        padding: 0 !important
+        left: 50% !important;
+        padding: 0 !important;
+        width: 100% !important;
+        transform: translate(-50%, -50%) !important;
+        -webkit-transform: translate(-50%, -50%) !important; 
     }
 
     .itemSlider .textSlider2 h1 {
         font-size: 16pt;
     }
 
+    .imgSlider2 {
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, 0%);
+        -webkit-transform: translate(0%, 0%); 
+        width: 100vw;
+        height: 50vh;
+        overflow: hidden;
+    }
+
     .itemSlider .textSlider2 p {
         font-size: 12pt;
-        width: 80vw;
+        max-width: 80vw;
     }
 
     .itemSlider .textSlider2 .linkToService {
+        width: auto ;
         font-size: 12pt;
     }
 
@@ -2234,9 +2252,9 @@ header .navigation ul li {
     .textSlider3 {
         width: 100vw !important;
         top: 55% !important;
-        left: 10% !important;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        -webkit-transform: translate(-50%, -50%) !important;
     }
 
     .textSlider3 h1 {
@@ -2261,16 +2279,17 @@ header .navigation ul li {
     }
 
     .textSlider4 h1 {
-        font-size: 16pt;
+        font-size: 16pt !important;
     }
 
     .textSlider4 p {
         left: 5% !important;
         max-width: 100% !important;
+        font-size: 10pt !important;
     }
 
     .textSlider4 .linkToService {
-        font-size: 10pt;
+        font-size: 12pt !important;
     }
 
     .iconServiceIndex {
