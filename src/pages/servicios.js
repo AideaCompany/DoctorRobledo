@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import {  Link } from "gatsby"
@@ -7,12 +7,14 @@ import {  Link } from "gatsby"
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
-const Servicios = () =>{
+const url = 'https://gestion.drgabrielrobledo.com';
+const Servicios = ({data}) =>{
 
+    const [dataService, setDataService] = useState([])
     const t1 = new TimelineMax({paused: true});
-
+    console.log(dataService)
     useEffect(() => {
-        
+        setDataService(data.allStrapiPaginaServicios.edges[0].node.Servicios)
         if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
             t1.to(".backServices", 0.5 , {width: "80vw", ease:  Power4.easeInOut})
             .to(".firstServices > h1", 0.5 ,  {opacity: 1})
@@ -43,53 +45,53 @@ const Servicios = () =>{
                     <div className='backServices'></div>
                     <Link to="/servicios/contrapulsacion" className='serviceTarget' id="service1">
                         <div className='backServiceTarget' id="backServiceTarget1"></div>
-                        <img src="../servicios/contrapulsacion.jpg" alt="servicios ccontrapulsación externa bogotá colombia doctor robledo kaiser "/>
-                        <h1>CONTRAPULSAIÓN <br/> EXTERNA</h1>
+                        <img src={`${url}${dataService[0]?.imagen[0]?.url}`} alt="servicios ccontrapulsación externa bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[0]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/rigidez-arterial" className='serviceTarget' id="service2">
                         <div className='backServiceTarget' id="backServiceTarget2"></div>
-                        <img src="../servicios/rigidez-arterial.jpg" alt="servicios rigidez arterial bogotá colombia doctor robledo kaiser "/>
-                        <h1>RIGIDEZ ARTERIAL</h1>
+                        <img src={`${url}${dataService[1]?.imagen[0]?.url}`} alt="servicios rigidez arterial bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[1]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/cardiologia" className='serviceTarget' id="service3">
                         <div className='backServiceTarget' id="backServiceTarget3"></div>
-                        <img src="../servicios/CARDIOLOGIA.jpg" alt="servicios cardiologia bogotá colombia doctor robledo kaiser "/>
-                        <h1>CARDIOLOGÍA</h1>
+                        <img src={`${url}${dataService[2]?.imagen[0]?.url}`} alt="servicios cardiologia bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[2]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/cardiooncologia" className='serviceTarget' id="service4">
                         <div className='backServiceTarget' id="backServiceTarget4"></div>   
-                        <img src="../servicios/cardioncologia.jpg" alt="servicios cardio bogotá colombia oncologia doctor robledo kaiser "/>
-                        <h1>CARDIO ONCOLOGÍA</h1>
+                        <img src={`${url}${dataService[3]?.imagen[0]?.url}`} alt="servicios cardio bogotá colombia oncologia doctor robledo kaiser "/>
+                        <h1>{dataService[3]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/electrocardiograma"  className='serviceTarget' id="service5">
                         <div className='backServiceTarget' id="backServiceTarget5"></div>
-                        <img src="../servicios/electrocardiograma.jpg" alt="servicios bogotá colombia electrocardiograma doctor robledo kaiser "/>
-                        <h1>ELECTROCARDIOGRAMA</h1>
+                        <img src={`${url}${dataService[4]?.imagen[0]?.url}`} alt="servicios bogotá colombia electrocardiograma doctor robledo kaiser "/>
+                        <h1>{dataService[4]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/ecocardiograma"  className='serviceTarget' id="service6">
                         <div className='backServiceTarget' id="backServiceTarget6"></div>
-                        <img src="../servicios/ECOCARDIOGRAMA.jpg" alt="servicios cardio  oncologia bogotá colombia doctor robledo kaiser "/>
-                        <h1>ECOCARDIOGRAMA</h1>
+                        <img src={`${url}${dataService[5]?.imagen[0]?.url}`} alt="servicios cardio  oncologia bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[5]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/rehabilitacion-cardiaca" className='serviceTarget' id="service7">
                         <div className='backServiceTarget' id="backServiceTarget7"></div>
-                        <img src="../servicios/rehabilitacion-cardiaca.jpg" alt="servicios ecocardriograma bogotá colombia  doctor robledo kaiser "/>
-                        <h1>REHABILITACIÓN CARDIACA</h1>
+                        <img src={`${url}${dataService[6]?.imagen[0]?.url}`} alt="servicios ecocardriograma bogotá colombia  doctor robledo kaiser "/>
+                        <h1>{dataService[6]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/prueba-de-esfuerzo" className='serviceTarget' id="service8">
                         <div className='backServiceTarget' id="backServiceTarget8"></div>
-                        <img src="../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="servicios prueba de esfuerzo bogotá colombia doctor robledo kaiser "/>
-                        <h1>PRUEBA DE ESFUERZO</h1>
+                        <img src={`${url}${dataService[7]?.imagen[0]?.url}`} alt="servicios prueba de esfuerzo bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[7]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/test-de-holter"  className='serviceTarget' id="service9">
                         <div className='backServiceTarget' id="backServiceTarget9"></div>
-                        <img src="../servicios/TEST-DE-HOLTER--DE-24-HORAS.jpg" alt="servicios test de holter bogotá colombia doctor robledo kaiser "/>
-                        <h1>TEST DE HOLTER</h1>
+                        <img src={`${url}${dataService[8]?.imagen[0]?.url}`} alt="servicios test de holter bogotá colombia doctor robledo kaiser "/>
+                        <h1>{dataService[8]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     <Link to="/servicios/monitoreo-de-presion-arterial"  className='serviceTarget' id="service10">
                         <div className='backServiceTarget' id="backServiceTarget10"></div>
-                        <img src="../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="servicios monitoreo ambulatorio bogotá colombia  doctor robledo kaiser "/>
-                        <h1>MONITOREO DE PRESIÓN ARTERIAL </h1>
+                        <img src={`${url}${dataService[9]?.imagen[0]?.url}`} alt="servicios monitoreo ambulatorio bogotá colombia  doctor robledo kaiser "/>
+                        <h1>{dataService[9]?.titulo?.toUpperCase()}</h1>
                     </Link>
                     
                 </div>
@@ -100,3 +102,22 @@ const Servicios = () =>{
 }
 
 export default Servicios
+
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

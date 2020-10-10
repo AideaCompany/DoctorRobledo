@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -9,9 +10,15 @@ import {LeftOutlined} from '@ant-design/icons'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+const url = 'https://gestion.drgabrielrobledo.com';
 
+const Ecocardiograma = ({data}) =>{
 
-const Ecocardiograma = () =>{
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[5].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -36,12 +43,10 @@ const Ecocardiograma = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/ECOCARDIOGRAMA.jpg" alt="ecocardiograma bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[5].imagen[0].url}`} alt="ecocardiograma bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Ecocardiograma</h1>
-                                <p> 
-                                    El ecocardiograma, valora la anatomía y función del corazón con la ayuda del ultrasonido.
-                                </p>
+                                <h1>{dataService[5].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -56,3 +61,21 @@ const Ecocardiograma = () =>{
 }
 
 export default Ecocardiograma
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

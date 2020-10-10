@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -9,9 +10,15 @@ import {LeftOutlined} from '@ant-design/icons'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+const url = 'https://gestion.drgabrielrobledo.com';
 
+const Electrocardiograma = ({data}) =>{
 
-const Electrocardiograma = () =>{
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[4].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -36,12 +43,10 @@ const Electrocardiograma = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/electrocardiograma.jpg" alt="electrocardiograma bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[4].imagen[0].url}`} alt="electrocardiograma bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Electrocardiograma </h1>
-                                <p> 
-                                    El <strong>ECG (electrocardiograma) </strong>mide la actividad eléctrica del corazón.
-                                </p>
+                                <h1>{dataService[4].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -56,3 +61,21 @@ const Electrocardiograma = () =>{
 }
 
 export default Electrocardiograma
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

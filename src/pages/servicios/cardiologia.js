@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -10,8 +11,14 @@ import {LeftOutlined} from '@ant-design/icons'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
+const url = 'https://gestion.drgabrielrobledo.com';
+const Cardiologia = ({data}) =>{
 
-const Cardiologia = () =>{
+  const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[2].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -37,10 +44,10 @@ const Cardiologia = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/CARDIOLOGIA.jpg" alt="cargiologia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[2].imagen[0].url}`} alt="cargiologia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Cardiología</h1>
-                                <p>Es la rama de la medicina encargada del estudio, diagnóstico y tratamiento de las enfermedades delcorazón y del aparato circulatorio Consulta especializada en todas las enfermedades propias del corazón</p>
+                                <h1>{dataService[2].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -55,3 +62,21 @@ const Cardiologia = () =>{
 }
 
 export default Cardiologia
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

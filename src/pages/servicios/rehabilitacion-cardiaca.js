@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
-
+import marked from 'marked'
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
 
@@ -10,8 +10,14 @@ import {LeftOutlined} from '@ant-design/icons'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
+const url = 'https://gestion.drgabrielrobledo.com';
+const RehabilitaciónCardiaca = ({data}) =>{
 
-const RehabilitaciónCardiaca = () =>{
+  const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[6].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -36,17 +42,10 @@ const RehabilitaciónCardiaca = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/rehabilitacion-cardiaca.jpg" alt="rehabilitación cardiaca bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[6].imagen[0].url}`} alt="rehabilitación cardiaca bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Rehabilitación  Cardiaca</h1>
-                                <p> 
-                                La <strong>rehabilitación cardíaca</strong>, es una disciplina que cada día toma auge, 
-                                por su contribución en la disminución de las tasas de morbi mortalidad 
-                                del paciente cardiovascular. Combina la actividad física con programas 
-                                educativos sobre los factores de riesgo de la enfermedad coronaria 
-                                (tabaquismo, obesidad, hipertensión, stress) que le permiten al 
-                                paciente un ajuste físico, sicológico y social posteriores a su enfermedad coronaria.
-                                </p>
+                                <h1>{dataService[6].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -61,3 +60,21 @@ const RehabilitaciónCardiaca = () =>{
 }
 
 export default RehabilitaciónCardiaca
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

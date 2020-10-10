@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -10,10 +11,14 @@ import {LeftOutlined} from '@ant-design/icons'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
+const url = 'https://gestion.drgabrielrobledo.com';
+const RigidezArterial = ({data}) =>{
 
-const RigidezArterial = (props) =>{
-
-    console.log(props)
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[1].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -38,12 +43,10 @@ const RigidezArterial = (props) =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/rigidez-arterial.jpg" alt="Rigidez arterial  bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[1].imagen[0].url}`} alt="Rigidez arterial  bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Rigidez Arterial</h1>
-                                <p> 
-                                    La <strong>Rigidez arterial</strong>, se valora con un tensiómetro especial que mide la velocidad de la onda de pulso, o sea de la sangre que sale del corazón a las arterias del cuerpo, y así conocer su rigidez, para determinar el riesgo de eventos cardiovasculares, en pacientes con factores de riesgo, y poder prescribir las acciones (control de factores de riesgo) y medicamentos que se puedan utilizar.
-                                </p>
+                                <h1>{dataService[1].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -58,3 +61,21 @@ const RigidezArterial = (props) =>{
 }
 
 export default RigidezArterial
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

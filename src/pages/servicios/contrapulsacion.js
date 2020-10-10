@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
-
+import marked from 'marked'
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
 
@@ -10,9 +10,14 @@ import {LeftOutlined} from '@ant-design/icons'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
-
-const Contrapulsacion = () =>{
-
+const url = 'https://gestion.drgabrielrobledo.com';
+const Contrapulsacion = ({data}) =>{
+    
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[0].descripcion, {sanitize : true})
+        return rawMarkup
+    }
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
         if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
@@ -36,12 +41,10 @@ const Contrapulsacion = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/contrapulsacion.jpg" alt="contrapulsacion externa bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[0].imagen[0].url}`} alt="contrapulsacion externa bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Contrapulsación externa</h1>
-                                <p> 
-                                    La <strong>Contrapulsación Externa </strong>Sincronizada del corazón es el método no invasivos mas útil en el tratamiento de la enfermedad coronaria y relacionadas con la circulació́n. Los sistemas de Contrapulsación externa sincronizados son dispositivos médicos no invasivos, para el tratamiento de pacientes que sufren de enfermedad coronaria. 
-                                </p>
+                                <h1>{dataService[0].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -56,3 +59,21 @@ const Contrapulsacion = () =>{
 }
 
 export default Contrapulsacion
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

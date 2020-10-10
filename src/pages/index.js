@@ -174,7 +174,7 @@ export default ({data}) =>{
               <Link className='linkToService' to="/servicios">Te invito a conocer mis servicios</Link>
             </div>
             <Link to='servicios/cardiologia' className='serviceIndex' id="iconService1">
-              <img className='iconServiceIndex' src="../index/cardiologia.svg" alt="cardiologia doctor robledo bogotá colombia"/>
+              <img className='iconServiceIndex' src="../index/cardiology.svg" alt="cardiologia doctor robledo bogotá colombia"/>
               <h1>Cardiología</h1>
             </Link>
             <Link to='servicios/contrapulsacion' className="serviceIndex" id="iconService2" >
@@ -187,7 +187,7 @@ export default ({data}) =>{
             </Link>
             <div className='imgSlider1'>
               <div className='mask1'></div>
-              <img  src={`${url}${dataSlider[0]?.url}`} alt="corazon"/>
+              <img  src={`${url}${dataSlider[0]?.imagen[0]?.url}`} alt="corazon"/>
             </div>
           </div>
         </FullpageSection>
@@ -203,7 +203,7 @@ export default ({data}) =>{
             <div className='backSlider2'></div>
             <div className='imgSlider2'>
               <div className='mask2'></div>
-              <img  src={`${url}${dataSlider[1]?.url}`} alt="doctor robledo kaiser"/>
+              <img  src={`${url}${dataSlider[1]?.imagen[0]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
@@ -219,7 +219,7 @@ export default ({data}) =>{
             <div className='cortina2'></div>
             <div className='imgSlider3'>
               <div className='mask3'></div>
-              <img className='img3' src={`${url}${dataSlider[2]?.url}`} alt="doctor robledo kaiser"/>
+              <img className='img3' src={`${url}${dataSlider[2]?.imagen[0]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
@@ -235,7 +235,7 @@ export default ({data}) =>{
             <div className='backSlider4'></div>
             <div className='imgSlider4'>
               <div className='mask4'></div>
-              <img className='img4' src={`${url}${dataSlider[3]?.url}`} alt="doctor robledo kaiser"/>
+              <img className='img4' src={`${url}${dataSlider[3]?.imagen[0]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>

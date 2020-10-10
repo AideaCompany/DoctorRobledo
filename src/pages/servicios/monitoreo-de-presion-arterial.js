@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -9,10 +10,15 @@ import {LeftOutlined} from '@ant-design/icons'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+const url = 'https://gestion.drgabrielrobledo.com';
 
+const MonitoreoDePresionArterial = ({data}) =>{
 
-const MonitoreoDePresionArterial = () =>{
-
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[9].descripcion, {sanitize : true})
+        return rawMarkup
+    }
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
         if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
@@ -36,12 +42,10 @@ const MonitoreoDePresionArterial = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/MONITOREO-AMBULATORIO-DE-PRESION-ARTERIAL-DE-24-HORAS.jpg" alt="monitoreo de presión arterial bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[9].imagen[0].url}`} alt="monitoreo de presión arterial bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Monitoreo de presión arterial</h1>
-                                <p> 
-                                    El <strong>Monitoreo de presión arterial (MAPA)</strong> de 24 horas determina como se encuentra la Presión Arterial durante las horas de vigilia y especialmente en la horas nocturnas (de sueño) y establece el riesgo de un evento cardiovascular. Permite detectar la hipertensión nocturna, la cual, hoy en día se considera de mayor riesgo que la diurna.
-                                </p>
+                                <h1>{dataService[9].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -56,3 +60,21 @@ const MonitoreoDePresionArterial = () =>{
 }
 
 export default MonitoreoDePresionArterial
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

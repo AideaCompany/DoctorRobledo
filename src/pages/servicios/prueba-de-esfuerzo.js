@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -9,9 +10,15 @@ import {LeftOutlined} from '@ant-design/icons'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+const url = 'https://gestion.drgabrielrobledo.com';
 
+const PruebaDeEsfuerzo = ({data}) =>{
 
-const PruebaDeEsfuerzo = () =>{
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[7].descripcion, {sanitize : true})
+        return rawMarkup
+    }
 
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
@@ -36,16 +43,10 @@ const PruebaDeEsfuerzo = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/PRUEBA-DE-ESFUERZO.jpg" alt="prueba de esfuerzo bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[7].imagen[0].url}`} alt="prueba de esfuerzo bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Prueba de esfuerzo</h1>
-                                <p> 
-                                    <strong>La prueba de esfuerzo </strong> 
-                                    determina la clase funcional de un individuo y permite conocer 
-                                    si existe o se sospecha de una enfermedad coronaria activa, 
-                                    así como la valoración de la capacidad de realizar un ejercicio, 
-                                    de acuerdo a parámetros establecidos según la edad de la persona.
-                                </p>
+                                <h1>{dataService[7].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -60,3 +61,21 @@ const PruebaDeEsfuerzo = () =>{
 }
 
 export default PruebaDeEsfuerzo
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`

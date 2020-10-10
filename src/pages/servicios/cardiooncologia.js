@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import {  Link } from "gatsby"
+import marked from 'marked'
 
 //Icons 
 import {LeftOutlined} from '@ant-design/icons'
@@ -9,10 +10,14 @@ import {LeftOutlined} from '@ant-design/icons'
 //Gsap
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
+const url = 'https://gestion.drgabrielrobledo.com';
 
-
-const Cardiooncologia = () =>{
-
+const Cardiooncologia = ({data}) =>{
+    const dataService = data.allStrapiPaginaServicios.edges[0].node.Servicios
+    const getMarkdownText = ()=>{
+        var rawMarkup = marked(dataService[3].descripcion, {sanitize : true})
+        return rawMarkup
+    }
     const t1 = new TimelineMax({paused: true});
     useEffect(() => {
         if (window.matchMedia("(max-width: 1024px) and (orientation : portrait)").matches) {
@@ -36,11 +41,10 @@ const Cardiooncologia = () =>{
                 <div className="mainContainerService">
                     <div className="firstServicesPages">
                         <div className='backServicesPages'>
-                            <img src="../../servicios/cardioncologia.jpg" alt="cardio oncologia bogotá colombia doctor gabriel robledo"/>
+                            <img src={`${url}${dataService[3].imagen[0].url}`} alt="cardio oncologia bogotá colombia doctor gabriel robledo"/>
                             <div className='textServices'>
-                                <h1>Cardio Oncología </h1>
-                                <p> Cuando se tiene cáncer, es muy poca la información que conoces sobre tu tratamiento y los posibles efectos que tiene en órganos vitales como el corazón. <br/>
-                                    Si tienes cáncer, tienes antecedentes o eres paciente re incidente, consúltanos para hablar de los efectos adversos puede tener la quimioterapia en un órgano como el corazón.</p>
+                                <h1>{dataService[3].titulo}</h1>
+                                <div dangerouslySetInnerHTML={{__html:getMarkdownText()}}></div>
                                 <div className='buttonCita'>
                                     <Link to="/citas">Solicita tu cita!</Link>
                                 </div>
@@ -55,3 +59,21 @@ const Cardiooncologia = () =>{
 }
 
 export default Cardiooncologia
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaServicios {
+    edges {
+      node {
+        Servicios {
+          titulo
+          imagen {
+            url
+          }
+          descripcion
+        }
+      }
+    }
+  }
+  }
+`
