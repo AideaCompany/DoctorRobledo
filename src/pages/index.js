@@ -1,6 +1,6 @@
 import React , {useState , useEffect , useRef} from "react"
 import {document} from 'browser-monads'
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from '../components/layout'
@@ -15,7 +15,8 @@ import preloader from '../components/animations/indexSlider/preloader.json'
 import {TimelineMax, gsap , CSSPlugin , Power4} from 'gsap/all'
 gsap.registerPlugin(CSSPlugin)
 
-export default () =>{
+const url = 'https://gestion.drgabrielrobledo.com'
+export default ({data}) =>{
 
   const [displayPreloader, setDisplayPreloader] = useState("inherit")
   const [initStyles, setInitStyles] = useState({
@@ -27,6 +28,7 @@ export default () =>{
   const [play3, setPlay3] = useState(false)
   const [play4, setPlay4] = useState(false)
   const [classArrow, setClassArrow] = useState('inherit')
+  const [dataSlider, setDataSlider] = useState([])
 
   const animationScrollRef = useRef(null)
   const preloaderRef = React.createRef()
@@ -40,11 +42,8 @@ export default () =>{
       preserveAspectRatio: 'xMidYMid slice'
     },
   };
-
-
   const t1 = new TimelineMax({paused: true});
   const t2 = new TimelineMax({paused: true});
-  const t3 = new TimelineMax({paused: true});
   // const t4 = new TimelineMax({paused: true});
   const textSlider1 = document.getElementsByClassName('textSlider1');
   const textSlider2 = document.getElementsByClassName('textSlider2');
@@ -55,7 +54,7 @@ export default () =>{
   const mask1 = document.getElementsByClassName('mask1');
 
   useEffect(() => {
-
+    setDataSlider(data.allStrapiPaginaInicio.edges[0].node.elementos_inicio)
     const anim = lottie.loadAnimation({
       container: preloaderRef.current,
       animationData: preloader,
@@ -170,12 +169,12 @@ export default () =>{
         <FullpageSection   >
           <div className='itemSlider' >
             <div className='one textSlider1 textSlider2Cel' id='leftSlider'>
-              <h1>Tu corazón</h1>
-              <p>Nuestro compromiso</p>
+              <h1>{dataSlider[0]?.titulo}</h1>
+              <p>{dataSlider[0]?.texto_complementario}</p>
               <Link className='linkToService' to="/servicios">Te invito a conocer mis servicios</Link>
             </div>
             <Link to='servicios/cardiologia' className='serviceIndex' id="iconService1">
-              <img className='iconServiceIndex' src="../index/cardiology.svg" alt="cardiologia doctor robledo bogotá colombia"/>
+              <img className='iconServiceIndex' src="../index/cardiologia.svg" alt="cardiologia doctor robledo bogotá colombia"/>
               <h1>Cardiología</h1>
             </Link>
             <Link to='servicios/contrapulsacion' className="serviceIndex" id="iconService2" >
@@ -188,32 +187,31 @@ export default () =>{
             </Link>
             <div className='imgSlider1'>
               <div className='mask1'></div>
-              <img  src="https://gestion.drgabrielrobledo.com/uploads/corazon_c9783caf1b.jpg" alt="corazon"/>
+              <img  src={`${url}${dataSlider[0]?.url}`} alt="corazon"/>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection> 
           <div className='itemSlider' >
             <div className='one textSlider2 ' id='leftSlider'>
-              <h1>Un poco sobre mi</h1>
+              <h1>{dataSlider[1]?.titulo}</h1>
               <p>
-              Soy el <strong>Dr. Gabriel Robledo Kaiser</strong>  nací el 27 de septiembre de 1950 en Bogotá. 
-                  Cuento con más de 40 años de experiencia siendo un reconocido especialista en <strong>Cardiología y Cardio-Oncología.</strong>
+              {dataSlider[1]?.texto_complementario}  
               </p>
               <Link className='linkToService' to="/quien-soy">Te invito a conocer más sobre mi</Link>
             </div>
             <div className='backSlider2'></div>
             <div className='imgSlider2'>
               <div className='mask2'></div>
-              <img  src="https://gestion.drgabrielrobledo.com/uploads/conoceme_8eac7439c7.png" alt="doctor robledo kaiser"/>
+              <img  src={`${url}${dataSlider[1]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
             <div className='one textSlider3' id='rightSlider'>
-                <h1>Reserva tu cita</h1>
-                <p>Juntos encontraremos el problema</p>
+                <h1>{dataSlider[2]?.titulo}</h1>
+                <p>{dataSlider[2]?.texto_complementario}</p>
                 <Link className='linkToService' to="/citas">Reserva tu cita dando clic aquí</Link>
             </div>
             <div className='backSlider3'></div>
@@ -221,25 +219,23 @@ export default () =>{
             <div className='cortina2'></div>
             <div className='imgSlider3'>
               <div className='mask3'></div>
-              <img className='img3' src="https://gestion.drgabrielrobledo.com/uploads/citas_c4c9077c8f.png" alt="doctor robledo kaiser"/>
+              <img className='img3' src={`${url}${dataSlider[2]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
         <FullpageSection>
           <div className='itemSlider' >
             <div className='one textSlider4' id='rightSlider'>
-              <h1>Biblioteca</h1>
+              <h1>{dataSlider[3]?.titulo}</h1>
               <p>
-                Aprendamos juntos!
-                <br/>
-                Noticias de interés y opiniones sobre el mundo de la médicina.
+                {dataSlider[2]?.texto_complementario}
               </p>
               <Link className='linkToService' to="/biblioteca">Artículos de interes</Link>
             </div>
             <div className='backSlider4'></div>
             <div className='imgSlider4'>
               <div className='mask4'></div>
-              <img className='img4' src="https://gestion.drgabrielrobledo.com/uploads/biblioteca_f0d7cf5038.jpg" alt="doctor robledo kaiser"/>
+              <img className='img4' src={`${url}${dataSlider[3]?.url}`} alt="doctor robledo kaiser"/>
             </div>
           </div>
         </FullpageSection>
@@ -250,3 +246,21 @@ export default () =>{
   </>
   )
 }
+
+export const IndexQuery = graphql`
+  query{
+    allStrapiPaginaInicio {
+    edges {
+      node {
+        elementos_inicio {
+          titulo
+          texto_complementario
+          imagen {
+            url
+          }
+        }
+      }
+    }
+  }
+  }
+`

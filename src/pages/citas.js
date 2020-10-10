@@ -74,7 +74,6 @@ const Citas = () =>{
                 return '30vw'
             }
         }
-        
     }
 
     const { register, handleSubmit, errors } = useForm();
@@ -226,7 +225,6 @@ const Citas = () =>{
                                 <li>Fecha de la cita: ${data.fecha} --  ${data.hora} </li>
                             </ul>
                         </div>
-                        
                     </div>
                 </body>
             </html>`
