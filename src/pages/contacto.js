@@ -202,9 +202,7 @@ const Contacto = () =>{
                             <li>Teléfonos: 320 9488078 - 6161808 </li>
                             <li>Email : <a href="mailto:Grobledoconsultas@gmail.com">Grobledoconsultas@gmail.com</a></li>
                         </ul>
-
-                        <iframe title="map" className='map' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15906.331500570062!2d-74.0568116!3d4.668211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4eedb045e905b2a0!2sCentro%20Cardiol%C3%B3gico%20de%20Bogot%C3%A1%20ltda!5e0!3m2!1ses!2sco!4v1587397182486!5m2!1ses!2sco" frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
+                        <iframe className='map'  src={`https://www.google.com/maps/d/embed?mid=1_KWMChq1-CAP66OUFKKyDF_FHe6XkZlN&hl=es&z=18`} frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                     <form  onSubmit={handleSubmit(onSubmit)} className={`${classes.root} formContact`}>
                         {/* name */}
