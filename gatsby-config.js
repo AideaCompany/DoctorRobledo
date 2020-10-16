@@ -39,7 +39,8 @@ module.exports = {
         singleTypes:[
           "pagina-inicio",
           "pagina-quien-soy",
-          "pagina-servicios"
+          "pagina-servicios",
+          "preguntas-frecuentes"
         ],
         queryLimit: 1000,
       },
