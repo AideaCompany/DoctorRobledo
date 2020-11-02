@@ -15,7 +15,7 @@ const {Meta} = Card
 
 
 const Biblioteca = ({data}) =>{
-    const dataQuery = data.allStrapiBlogs.edges
+    const dataQuery = data.allStrapiBlogs.edges.reverse()
 
         const URL = 'https://gestion.drgabrielrobledo.com'
 
